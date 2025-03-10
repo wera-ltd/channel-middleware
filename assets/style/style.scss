@@ -1,0 +1,18 @@
+@use "raw/base/reset";
+
+@use "vendors/aos.css";
+@use "vendors/swiper-bundle.min.css";
+
+@use "raw/layout/common";
+@use "raw/layout/header";
+@use "raw/layout/footer";
+
+@use "raw/pages/index";
+@use "raw/pages/sign-up";
+@use "raw/pages/login";
+@use "raw/pages/find";
+@use "raw/pages/terms";
+@use "raw/pages/landing";
+@use "raw/pages/contact";
+@use "raw/pages/pricing";
+@use "raw/pages/new";

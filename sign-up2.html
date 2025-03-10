@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>채널미들웨어 | 회원가입</title>
+  <meta name="keywords" content="채널미들웨어 | 회원가입">
+  <meta name="application-name" content="채널미들웨어 | 회원가입">
+  <meta name="msapplication-tooltip" content="채널미들웨어 | 회원가입">
+  <meta id="meta_og_title" property="og:title" content="채널미들웨어 | 회원가입">
+  <meta name="description" content="채널미들웨어 | 회원가입">
+  <meta property="og:description" content="채널미들웨어 | 회원가입">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#000000">
+  <meta name="msapplication-navbutton-color" content="#000000">
+  <link rel="shortcut icon" href="assets/images/common/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/images/common/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/images/common/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/images/common/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/images/common/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/images/common/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/images/common/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/images/common/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/images/common/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/common/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/common/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/common/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/images/common/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/common/icons/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/common/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="assets/images/common/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta property="og:image" content="assets/images/common/og-image.jpg">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="627">
+  <link rel="stylesheet" href="assets/style/style.css">
+  <script src="assets/js/vendors/jquery.min.js"></script>
+  <script src="assets/js/vendors/aos.js"></script>
+  <script src="assets/js/common.js"></script>
+
+</head>
+<body>
+<div class="sub">
+  <header class="header js-header">
+  <div class="layout">
+    <h1 class="header-logo">
+      <a href="index.html" class="header-logo__link">채널미들웨어</a>
+    </h1>
+    <nav class="header-menu">
+      <a href="pricing.html" class="header-menu__link">요금표</a>
+<a href="contact.html" class="header-menu__link">문의하기</a>
+<a href="" class="header-menu__link">메뉴1</a>
+<a href="" class="header-menu__link">메뉴2</a>
+    </nav>
+    <nav class="header-right-menu">
+      <a href="login.html" class="header-right-menu__link">로그인</a>
+      <a href="sign-up.html" class="header-right-menu__link">무료 회원가입</a>
+    </nav>
+    <button class="header-menu-button"></button>
+  </div>
+</header>
+
+  <main class="sign-up">
+    <h1 class="sign-up__title">회원가입</h1>
+    <ol class="sign-up-steps">
+      <li class="sign-up-step pass">
+        <i class="sign-up-step__number">1</i>
+        <strong class="sign-up-step__text">약관 동의</strong>
+      </li>
+      <li class="sign-up-step">
+        <i class="sign-up-step__number current">2</i>
+        <strong class="sign-up-step__text">정보 입력</strong>
+      </li>
+      <li class="sign-up-step">
+        <i class="sign-up-step__number">3</i>
+        <strong class="sign-up-step__text">가입 완료</strong>
+      </li>
+    </ol>
+    <form action="" class="sign-up-form">
+      <fieldset class="sign-up-fieldset">
+        <legend class="sign-up-form__subject">로그인 정보</legend>
+        <div class="form-separator-line"></div>
+        <div class="input-part-area">
+          <div class="input-part">
+            <strong class="input__label">아이디 <i class="input__required">*</i></strong>
+            <div>
+              <div class="input-part-with-button">
+                <div class="input-input-part with-button">
+                  <input type="text" class="input__input text error" placeholder="아이디 입력">
+                </div>
+                <button type="button" class="input-check-button js-id-check-button with-input" disabled>
+                  중복 확인
+                </button>
+              </div>
+              <p class="input__error not-fix">* 이미 사용중인 아이디 입니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="input-part-area">
+          <div class="input-part">
+            <strong class="input__label">비밀번호 <i class="input__required">*</i></strong>
+            <div class="input-input-part">
+              <input type="password" class="input__input text m-full" placeholder="비밀번호(8~16자)">
+              <p class="input__notice">
+                <i class="color--primary">*</i> 영문(대/소), 숫자, 특문 조합 8~ 16자리. 영문/숫자는 1자 이상 필수
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="input-part-area">
+          <div class="input-part">
+            <strong class="input__label">비밀번호 확인 <i class="input__required">*</i></strong>
+            <div class="input-input-part">
+              <input type="password" class="input__input text m-full" placeholder="비밀번호 확인">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="sign-up-fieldset">
+        <legend class="sign-up-form__subject">판매자 정보</legend>
+        <div class="form-separator-line"></div>
+        <div class="input-part-area">
+          <div class="input-part">
+            <strong class="input__label">회사명 <i class="input__required">*</i></strong>
+            <div class="input-input-part">
+              <input type="text" class="input__input text m-full" placeholder="회사명 입력">
+            </div>
+          </div>
+        </div>
+        <div class="input-part-area">
+          <div class="input-part">
+            <strong class="input__label">사업자번호 <i class="input__required">*</i></strong>
+            <div class="input-input-part">
+              <input type="text" class="input__input text m-full error" placeholder="사업자번호 입력">
+              <p class="input__error not-fix">* 이미 사용중인 아이디 입니다.</p>
+            </div>
+            <button type="button" class="input-check-button company js-company-check-button" disabled>
+              사업자번호 인증
+            </button>
+          </div>
+        </div>
+        <div class="input-part-area">
+          <div class="input-part">
+            <strong class="input__label">담당자 휴대폰인증 <i class="input__required">*</i></strong>
+            <div class="input-input-part">
+              <!--              완료시 confirm 클래스 추가-->
+              <button type="button" class="input-check-button wide confirm js-certification-check-button">
+                휴대전화 본인 인증
+              </button>
+              <!--              완료시 confirm 클래스 추가-->
+              <p class="input__notice">
+                <i class="color--primary">*</i> 본인 인증을 통해 담당자명과 연락처는 자동입력됩니다.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="input-part-area">
+          <div class="input-part">
+            <strong class="input__label">담당자명 <i class="input__required">*</i></strong>
+            <div class="input-input-part">
+              <input type="text" class="input__input text m-full" readonly>
+            </div>
+          </div>
+        </div>
+        <div class="input-part-area">
+          <div class="input-part">
+            <strong class="input__label">연락처 <i class="input__required">*</i></strong>
+            <div class="input-input-part">
+              <input type="text" class="input__input text m-full" readonly>
+            </div>
+          </div>
+        </div>
+        <div class="input-part-area">
+          <div class="input-part">
+            <strong class="input__label">이메일 <i class="input__required">*</i></strong>
+            <div class="input-part">
+              <div class="input-part one-line">
+                <input type="text" class="input__input text email" placeholder="이메일 입력">
+                <span class="input__input-separator">@</span>
+                <input type="text" class="input__input text email js-input-email2">
+              </div>
+              <div class="input__dropdown-area js-select-email m-full">
+                <button type="button" class="input__dropdown js-select-text">직접입력</button>
+                <div class="dropdown-box-list">
+                  <span class="dropdown-box__item js-select-item" data-type="direct">직접입력</span>
+                  <span class="dropdown-box__item js-select-item">naver.com</span>
+                  <span class="dropdown-box__item js-select-item">hanmail.net</span>
+                  <span class="dropdown-box__item js-select-item">hotmail.com</span>
+                  <span class="dropdown-box__item js-select-item">nate.com</span>
+                  <span class="dropdown-box__item js-select-item">yahoo.co.kr</span>
+                  <span class="dropdown-box__item js-select-item">empas.com</span>
+                  <span class="dropdown-box__item js-select-item">dreamwiz.com</span>
+                  <span class="dropdown-box__item js-select-item">gmail.com</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="input-part-area">
+          <div class="input-part check">
+            <strong class="input__label">마케팅 수신여부 <i class="input__required">*</i></strong>
+            <div class="input-check-part-area-wrap">
+              <div class="input-check-part-area inline">
+                <div class="input-check-part">
+                  <input class="input__input type--checkbox"
+                         id="marketing1"
+                         type="checkbox"
+                         required
+                  />
+                  <label for="marketing1" class="input__label type--checkbox">
+                    이메일
+                  </label>
+                </div>
+                <div class="input-check-part">
+                  <input class="input__input type--checkbox"
+                         id="marketing2"
+                         type="checkbox"
+                         required
+                  />
+                  <label for="marketing2" class="input__label type--checkbox">
+                    문자메시지
+                  </label>
+                </div>
+              </div>
+              <p class="input__notice">
+                <i class="color--primary">*</i> 이벤트, 프로모션 등에 대한 정보를 보내드립니다.<br/>
+                <i class="color--primary">*</i> 이메일/문자메시지 수신거부와 상관없이 거래관련 이메일, 회사주용정책 공지 메일 등은 발송됩니다.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="input-part-area">
+          <div class="input-part check">
+            <strong class="input__label">마케팅 수신여부 <i class="input__required">*</i></strong>
+            <div class="input-check-part-area-wrap">
+              <div class="input-check-part-area inline multiple-line">
+                <div class="input-check-part">
+                  <input class="input__input type--radio"
+                         id="cate1"
+                         name="cate"
+                         type="radio"
+                  />
+                  <label for="cate1" class="input__label type--radio">
+                    생활건강
+                  </label>
+                </div>
+                <div class="input-check-part">
+                  <input class="input__input type--radio"
+                         id="cate2"
+                         name="cate"
+                         type="radio"
+                  />
+                  <label for="cate2" class="input__label type--radio">
+                    패션의류
+                  </label>
+                </div>
+                <div class="input-check-part">
+                  <input class="input__input type--radio"
+                         id="cate3"
+                         name="cate"
+                         type="radio"
+                  />
+                  <label for="cate3" class="input__label type--radio">
+                    패션잡화
+                  </label>
+                </div>
+                <div class="input-check-part">
+                  <input class="input__input type--radio"
+                         id="cate4"
+                         name="cate"
+                         type="radio"
+                  />
+                  <label for="cate4" class="input__label type--radio">
+                    스포츠/레저
+                  </label>
+                </div>
+                <div class="input-check-part">
+                  <input class="input__input type--radio"
+                         id="cate5"
+                         name="cate"
+                         type="radio"
+                  />
+                  <label for="cate5" class="input__label type--radio">
+                    디지털/가전
+                  </label>
+                </div>
+                <div class="input-check-part">
+                  <input class="input__input type--radio"
+                         id="cate6"
+                         name="cate"
+                         type="radio"
+                  />
+                  <label for="cate6" class="input__label type--radio">
+                    식품
+                  </label>
+                </div>
+                <div class="input-check-part">
+                  <input class="input__input type--radio"
+                         id="cate7"
+                         name="cate"
+                         type="radio"
+                  />
+                  <label for="cate7" class="input__label type--radio">
+                    뷰티
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="input-part-area">
+          <div class="input-part check">
+            <strong class="input__label">솔루션 경험 유무 <i class="input__required">*</i></strong>
+            <div class="input-check-part-area-wrap">
+              <div class="input-check-part-area inline">
+                <div class="input-check-part">
+                  <input class="input__input type--radio js-input-radio-solution"
+                         id="solutionY"
+                         name="solution"
+                         type="radio"
+                         value="solutionY"
+                  />
+                  <label for="solutionY" class="input__label type--radio">
+                    있음
+                  </label>
+                </div>
+                <div class="input-check-part">
+                  <input class="input__input type--radio js-input-radio-solution"
+                         id="solutionN"
+                         name="solution"
+                         type="radio"
+                         value="solutionN"
+                  />
+                  <label for="solutionN" class="input__label type--radio">
+                    없음
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="js-solution-answer-content solution-answer-content">
+          <p class="solution-answer__description">
+            사용해 보신 적이 있는 솔루션을 모두 선택해주세요  <i class="input__required">*</i>
+          </p>
+          <div class="input-check-part-area-wrap">
+            <div class="input-check-part-area inline">
+              <div class="input-check-part">
+                <input class="input__input type--checkbox js-input-check-solutions" id="solution1" type="checkbox"/>
+                <label for="solution1" class="input__label type--checkbox">이메일</label>
+              </div>
+              <div class="input-check-part">
+                <input class="input__input type--checkbox js-input-check-solutions" id="solution2" type="checkbox"/>
+                <label for="solution2" class="input__label type--checkbox">샵링커</label>
+              </div>
+              <div class="input-check-part">
+                <input class="input__input type--checkbox js-input-check-solutions" id="solution3" type="checkbox"/>
+                <label for="solution3" class="input__label type--checkbox">플레이토</label>
+              </div>
+              <div class="input-check-part">
+                <input class="input__input type--checkbox js-input-check-solutions" id="solution4" type="checkbox"/>
+                <label for="solution4" class="input__label type--checkbox">토글</label>
+              </div>
+              <div class="input-check-part">
+                <input class="input__input type--checkbox js-input-check-solutions" id="solution5" type="checkbox"/>
+                <label for="solution5" class="input__label type--checkbox">이지어드민</label>
+              </div>
+              <div class="input-check-part">
+                <input class="input__input type--checkbox js-input-check-solutions" id="solution6" type="checkbox"/>
+                <label for="solution6" class="input__label type--checkbox">셀메이트</label>
+              </div>
+              <div class="input-check-part with-input">
+                <input class="input__input type--checkbox js-input-check-solutions etc" id="solution7" type="checkbox" />
+                <label for="solution7" class="input__label type--checkbox">기타</label>
+                <input type="text" class="input__input text js-solution-etc-input solution-etc-input" readonly>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="sign-up-fieldset last">
+        <legend class="sign-up-form__subject">파일 등록</legend>
+        <div class="form-separator-line"></div>
+        <div class="input-part-area">
+          <div class="input-part align-start">
+            <strong class="input__label">사업자등록증 <i class="input__required">*</i></strong>
+            <div>
+              <div class="input-input-part file">
+                <div class="input__input-file input__input text">
+                  <input type="file" id="file" class="input__input file js-input-file" accept=".jpeg, .jpg, .png">
+                  <mark class="input__input-file-text js-input-file-text">꼬네호_사업자등록증_20221101.jPG</mark>
+                  <button type="button" class="input__input-file-delete js-input-file-delete">
+                    <img src="assets/images/common/delete.svg" alt="삭제">
+                  </button>
+                </div>
+                <label for="file" class="input__label-file type--button">파일 찾기</label>
+              </div>
+              <p class="input__error not-fix">
+                * 용량이 너무 큽니다. 8MB 이하로 등록해주세요.
+              </p>
+              <p class="input__notice">
+                <i class="color--primary">*</i> JPG, JPGE, PNG 파일 형식만 등록 가능합니다.<br/>
+                <i class="color--primary">*</i> 파일 용량은 8MB 이하만 가능합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="form-separator-line"></div>
+      <div class="button-area">
+        <button class="sign-up__button outline multiple">이전</button>
+        <button class="sign-up__button js-next-button multiple" disabled>다음</button>
+      </div>
+    </form>
+  </main>
+  <footer class="footer">
+  <div class="layout">
+    <img src="assets/images/common/footer-logo.svg" alt="channel middleware">
+    <div class="footer-text">
+      <div class="footer-quick">
+        <a href="" class="footer-quick__link">이용약관</a>
+        <span class="footer-separator"></span>
+        <a href="" class="footer-quick__link">개인정보취급방침</a>
+      </div>
+      <p class="footer-text__item">
+        채널미들웨어 주식회사<span class="footer-separator"></span>
+        대표자명 : 김윤상<span class="footer-separator"></span>
+        서울 송파구 송파대로 201, B동 913-1<span class="footer-separator"></span>
+        문의 : contact@channelm.kr<span class="footer-separator"></span>
+        사업자등록번호 872-81-02547<span class="footer-separator"></span>
+        통신판매 제2022-서울송파-2641호
+      </p>
+      <p class="footer-text__item footer-text__item-copyright">
+        Copyright © ChannelMiddleWare Inc. All Rights Reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</div>
+<script>
+  $(function () {
+    // 이메일 선택
+    $(document).on('click', '.js-select-email', function() {
+      const select = $(this);
+      if($(this).hasClass('open')) {
+        $(this).removeClass('open')
+      }else {
+        $(this).addClass('open')
+      }
+      const setting = $(this).find('.dropdown-box-list');
+      $(document).on('mouseup', function(e) {
+        if (setting.has(e.target).length === 0) {
+          if(e.target.className !== select[0].className) {
+            select.removeClass('open')
+          }
+        }
+      });
+    });
+    $(document).on('click', '.js-select-item', function() {
+      $(this).parents('.js-select-email').addClass('selected')
+      $(this).addClass('selected').siblings().removeClass('selected');
+
+      if ($(this).text() === '직접입력') {
+        $('.js-input-email2').val('')
+      } else {
+        $('.js-input-email2').val($(this).text())
+      }
+      $($(this).parent().parent().find('.js-select-text')).text($(this).text())
+    })
+
+
+    $('.js-input-radio-solution').on('click', function() {
+      if($(this).val() === 'solutionY') {
+        $('.js-solution-answer-content').show()
+      } else {
+        $('.js-solution-answer-content').hide()
+      }
+    })
+
+    $('.js-input-check-solutions').on('click', function() {
+      if($('.js-input-check-solutions.etc').is(':checked')) {
+        $('.js-solution-etc-input').prop('readonly', false)
+      } else {
+        $('.js-solution-etc-input').prop('readonly', true)
+      }
+    })
+
+
+    // 사업자등록증업로드
+    $(document).on('change', '.js-input-file', function(e) {
+      const input = e.target
+      if(input.files && input.files[0]) {
+        const size = input.files[0].size || input.files[0].fileSize;
+        const limit = 8000000;
+        if ( size > limit ) {
+          alert('파일용량은 8MB를 넘을 수 없습니다.');
+          $(this).val('');
+          return;
+        }
+        const reader = new FileReader()
+        // 이미지가 로드가 된 경우
+        reader.onload = e => {
+          const previewText = $(this).next('.js-input-file-text')
+          previewText.text(input.files[0].name);
+          $('.js-input-file-delete').show()
+        }
+        // reader가 이미지 읽도록 하기
+        reader.readAsDataURL(input.files[0])
+      }
+    })
+
+    //사업자등록증 삭제
+    $(document).on('click', '.js-input-file-delete', function() {
+      $('.js-input-file').val('')
+      $('.js-input-file-text').text('')
+      $(this).hide()
+    })
+  })
+</script>
+</body>

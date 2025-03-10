@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>채널미들웨어 | 회원가입</title>
+  <meta name="keywords" content="채널미들웨어 | 회원가입">
+  <meta name="application-name" content="채널미들웨어 | 회원가입">
+  <meta name="msapplication-tooltip" content="채널미들웨어 | 회원가입">
+  <meta id="meta_og_title" property="og:title" content="채널미들웨어 | 회원가입">
+  <meta name="description" content="채널미들웨어 | 회원가입">
+  <meta property="og:description" content="채널미들웨어 | 회원가입">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#000000">
+  <meta name="msapplication-navbutton-color" content="#000000">
+  <link rel="shortcut icon" href="assets/images/common/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/images/common/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/images/common/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/images/common/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/images/common/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/images/common/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/images/common/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/images/common/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/images/common/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/common/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/common/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/common/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/images/common/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/common/icons/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/common/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="assets/images/common/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta property="og:image" content="assets/images/common/og-image.jpg">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="627">
+  <link rel="stylesheet" href="assets/style/style.css">
+  <script src="assets/js/vendors/jquery.min.js"></script>
+  <script src="assets/js/vendors/aos.js"></script>
+  <script src="assets/js/common.js"></script>
+
+</head>
+<body>
+<div class="sub">
+  <header class="header js-header">
+  <div class="layout">
+    <h1 class="header-logo">
+      <a href="index.html" class="header-logo__link">채널미들웨어</a>
+    </h1>
+    <nav class="header-menu">
+      <a href="pricing.html" class="header-menu__link">요금표</a>
+<a href="contact.html" class="header-menu__link">문의하기</a>
+<a href="" class="header-menu__link">메뉴1</a>
+<a href="" class="header-menu__link">메뉴2</a>
+    </nav>
+    <nav class="header-right-menu">
+      <a href="login.html" class="header-right-menu__link">로그인</a>
+      <a href="sign-up.html" class="header-right-menu__link">무료 회원가입</a>
+    </nav>
+    <button class="header-menu-button"></button>
+  </div>
+</header>
+
+  <main class="sign-up">
+    <h1 class="sign-up__title">회원가입</h1>
+    <ol class="sign-up-steps">
+      <li class="sign-up-step current">
+        <i class="sign-up-step__number">1</i>
+        <strong class="sign-up-step__text">약관 동의</strong>
+      </li>
+      <li class="sign-up-step">
+        <i class="sign-up-step__number">2</i>
+        <strong class="sign-up-step__text">정보 입력</strong>
+      </li>
+      <li class="sign-up-step">
+        <i class="sign-up-step__number">3</i>
+        <strong class="sign-up-step__text">가입 완료</strong>
+      </li>
+    </ol>
+    <form action="" class="sign-up-form">
+      <fieldset>
+        <legend class="sign-up-form__subject">약관동의</legend>
+        <div class="input-check-part-area all agreement">
+          <div class="input-check-part">
+            <input class="input__input type--checkbox js-input-checkbox-all"
+                   id="agreeAll"
+                   type="checkbox"
+                   required
+            />
+            <label for="agreeAll" class="input__label type--checkbox">
+              아래 약관에 모두 동의합니다.
+            </label>
+          </div>
+        </div>
+        <div class="input-check-part-area agreement">
+          <div class="input-check-part">
+            <input class="input__input type--checkbox js-input-checkbox"
+                   id="agree1"
+                   type="checkbox"
+                   required
+            />
+            <label for="agree1" class="input__label type--checkbox">
+              이용약관(필수)
+            </label>
+          </div>
+          <div class="agreement-content">
+            이용약관<br/>
+            제1조(목적)<br/><br/>
+
+            본 약관은 주식회사 더 커머스(이하"회사”)가 제공하는 원셀 서비스(이하"서비스”)의 이용과 관련하여 회사와 이용자의 권리의무 및 책임사항, 기타 필요한 사항을 목적으로 합니다.<br/><br/>
+
+            제2조 (용어의 정의)<br/>
+            본 약관에서 사용하는 용어의 정의는 다음과 같습니다.<br/>
+            본 약관에서 사용하는 용어의 정의는 다음과 같습니다.<br/>
+            본 약관에서 사용하는 용어의 정의는 다음과 같습니다.<br/>
+            본 약관에서 사용하는 용어의 정의는 다음과 같습니다.
+          </div>
+        </div>
+        <div class="input-check-part-area agreement">
+          <div class="input-check-part">
+            <input class="input__input type--checkbox js-input-checkbox"
+                   id="agree2"
+                   type="checkbox"
+                   required
+            />
+            <label for="agree2" class="input__label type--checkbox">
+              개인정보보호 취급방침(필수)
+            </label>
+          </div>
+          <div class="agreement-content">
+            이용약관<br/>
+            제1조(목적)<br/><br/>
+
+            본 약관은 주식회사 더 커머스(이하"회사”)가 제공하는 원셀 서비스(이하"서비스”)의 이용과 관련하여 회사와 이용자의 권리의무 및 책임사항, 기타 필요한 사항을 목적으로 합니다.<br/><br/>
+
+            제2조 (용어의 정의)<br/>
+            본 약관에서 사용하는 용어의 정의는 다음과 같습니다.<br/>
+            본 약관에서 사용하는 용어의 정의는 다음과 같습니다.<br/>
+            본 약관에서 사용하는 용어의 정의는 다음과 같습니다.<br/>
+            본 약관에서 사용하는 용어의 정의는 다음과 같습니다.
+          </div>
+        </div>
+      </fieldset>
+      <button class="sign-up__button js-next-button" disabled>다음</button>
+    </form>
+  </main>
+  <footer class="footer">
+  <div class="layout">
+    <img src="assets/images/common/footer-logo.svg" alt="channel middleware">
+    <div class="footer-text">
+      <div class="footer-quick">
+        <a href="" class="footer-quick__link">이용약관</a>
+        <span class="footer-separator"></span>
+        <a href="" class="footer-quick__link">개인정보취급방침</a>
+      </div>
+      <p class="footer-text__item">
+        채널미들웨어 주식회사<span class="footer-separator"></span>
+        대표자명 : 김윤상<span class="footer-separator"></span>
+        서울 송파구 송파대로 201, B동 913-1<span class="footer-separator"></span>
+        문의 : contact@channelm.kr<span class="footer-separator"></span>
+        사업자등록번호 872-81-02547<span class="footer-separator"></span>
+        통신판매 제2022-서울송파-2641호
+      </p>
+      <p class="footer-text__item footer-text__item-copyright">
+        Copyright © ChannelMiddleWare Inc. All Rights Reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</div>
+<script>
+  $('.js-input-checkbox-all').on('click', function() {
+    if($(this).prop('checked')) {
+      $('.js-input-checkbox').prop('checked',true);
+    } else {
+      $('.js-input-checkbox').prop('checked',false);
+    }
+    checkAgreement()
+  })
+  //check
+  $('.js-input-checkbox').on('click', function() {
+    if ($(this).is(':checked')) {
+      let isAllChecked = 0;
+
+      $('.js-input-checkbox').each(function() {
+        if (!this.checked)
+          isAllChecked = 1;
+      });
+
+      if (isAllChecked === 0) {
+        $('.js-input-checkbox-all').prop('checked', true);
+      }
+    }
+    else {
+      $('.js-input-checkbox-all').prop('checked', false);
+    }
+    checkAgreement()
+  })
+
+  function checkAgreement () {
+    if ($('.js-input-checkbox-all').is(':checked')) {
+      $('.js-next-button').prop('disabled', false)
+    } else {
+      $('.js-next-button').prop('disabled', true)
+    }
+  }
+</script>
+</body>
