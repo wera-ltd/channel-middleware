@@ -9,6 +9,123 @@
   <meta id="meta_og_title" property="og:title" content="채널미들웨어 | 요금표">
   <meta name="description" content="채널미들웨어 | 요금표">
   <meta property="og:description" content="채널미들웨어 | 요금표">
+  <style>
+
+
+      .container {
+          width: 600px;
+          max-width: 90%;
+          padding: 40px;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+          font-size: 24px;
+          margin-bottom: 30px;
+          text-align: center;
+      }
+
+      .slider-container {
+          position: relative;
+          margin-bottom: 40px;
+      }
+
+      .slider {
+          -webkit-appearance: none;
+          width: 100%;
+          height: 8px;
+          border-radius: 4px;
+          background: #e0e0e0;
+          outline: none;
+          cursor: pointer;
+      }
+
+      .slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background: var(--thumb-color, #3498db);
+          cursor: pointer;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+          transition: background 0.3s;
+      }
+
+      .slider::-moz-range-thumb {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background: var(--thumb-color, #3498db);
+          cursor: pointer;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+          transition: background 0.3s;
+          border: none;
+      }
+
+      .slider::-webkit-slider-thumb:hover {
+          background: var(--thumb-hover-color, #2980b9);
+      }
+
+      .slider::-moz-range-thumb:hover {
+          background: var(--thumb-hover-color, #2980b9);
+      }
+
+      .slider-progress {
+          height: 8px;
+          background: var(--progress-color, #3498db);
+          border-radius: 4px 0 0 4px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          pointer-events: none;
+      }
+
+      .slider-value {
+          position: relative;
+          width: 100%;
+          text-align: center;
+          margin-top: 20px;
+          font-size: 18px;
+          font-weight: bold;
+      }
+
+      .slider-labels {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 10px;
+          color: #666;
+      }
+
+      .custom-slider {
+          margin-bottom: 30px;
+      }
+
+      .custom-slider h2 {
+          font-size: 18px;
+          margin-bottom: 15px;
+          color: #555;
+      }
+
+      .custom-slider:last-child {
+          margin-bottom: 0;
+      }
+
+      .slider.blue {
+          --thumb-color: #3498db;
+          --thumb-hover-color: #2980b9;
+          --progress-color: #3498db;
+      }
+
+      .slider.red {
+          --thumb-color: #e74c3c;
+          --thumb-hover-color: #c0392b;
+          --progress-color: #e74c3c;
+      }
+
+  </style>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#000000">
@@ -38,6 +155,7 @@
   <link rel="stylesheet" href="assets/style/style.css">
   <script src="assets/js/vendors/jquery.min.js"></script>
   <script src="assets/js/vendors/aos.js"></script>
+  <script src="assets/js/vendors/petite-vue.js"></script>
   <script src="assets/js/common.js"></script>
 
 </head>
@@ -65,6 +183,111 @@
   <article class="section contact-section">
     <div class="layout section-text fade-content">
       <h1 class="common__title">요금표</h1>
+      <div class="container" v-scope="Slider()">
+        <h1>petite-vue 슬라이더</h1>
+        <!-- 갯수 슬라이더 -->
+        <div class="custom-slider">
+          <h2>갯수 슬라이더</h2>
+          <div class="slider-container">
+            <input type="range"
+                   class="slider blue"
+                   v-model="count.value"
+                   :min="count.min"
+                   :max="count.max"
+                   :step="count.step">
+            <div class="slider-progress" :style="{ width: count.percentage + '%' }"></div>
+          </div>
+          <div class="slider-labels">
+            <span>{{ count.min }}</span>
+            <span>{{ count.max }}</span>
+          </div>
+          <div class="slider-value">value {{ count.displayValue }}</div>
+          <div class="slider-value">가격 {{ count.price }}</div>
+        </div>
+
+        <!-- 스케쥴 -->
+        <div class="custom-slider">
+          <h2>스케쥴 슬라이더 </h2>
+          <div class="slider-container">
+            <input type="range"
+                   class="slider red"
+                   v-model="schedule.value"
+                   :min="schedule.min"
+                   :max="schedule.max"
+                   :step="schedule.step">
+            <div class="slider-progress" :style="{ width: schedule.percentage + '%' }"></div>
+          </div>
+          <div class="slider-labels">
+            <span>4</span>
+            <span>{{ schedule.max }}</span>
+          </div>
+          <div class="slider-value">value {{ schedule.displayValue }}</div>
+          <div class="slider-value">가격 {{ schedule.price }}</div>
+        </div>
+
+        <div >
+          총 가격: {{ sumPrice }}
+        </div>
+      </div>
+      <script>
+        function Slider (props) {
+          return {
+            count: {
+              min: 3000,
+              max: 30000,
+              value: 3000,
+              step: 1000,
+              get price() {
+                if (this.value == 3000 ) {
+                  return 360000;
+                }
+                if (this.value == 4000 ) {
+                  return 480000;
+                }
+                if (this.value == 5000 ) {
+                  return 540000;
+                }
+                return this.value * 100;
+              },
+
+              get displayValue() {
+                return this.value;
+              },
+
+              get percentage() {
+                return ((this.value - this.min) / (this.max - this.min)) * 100;
+              },
+            },
+            schedule: {
+              min: 0,
+              max: 50,
+              value: 0,
+              step: 10,
+              get price() {
+                return this.value * 5000
+              },
+
+              get displayValue() {
+                if (this.value == 0) {
+                  return 4
+                }
+                return this.value
+              },
+
+              get percentage() {
+                return ((this.value - this.min) / (this.max - this.min)) * 100;
+              },
+            },
+
+            get sumPrice() {
+              return this.count.price + this.schedule.price;
+            },
+          }
+        }
+
+        // petite-vue 초기화
+        PetiteVue.createApp().mount();
+      </script>
       <p class="common__description">
         궁금하신 점이 있으시면 언제든 문의해주세요.
       </p>
