@@ -50,16 +50,22 @@
       <a href="index.html" class="header-logo__link">채널미들웨어</a>
     </h1>
     <nav class="header-menu">
-      <a href="pricing.html" class="header-menu__link">요금표</a>
-<a href="contact.html" class="header-menu__link">문의하기</a>
-<a href="" class="header-menu__link">메뉴1</a>
-<a href="" class="header-menu__link">메뉴2</a>
+      <div class="header-menu-inner">
+        <a href="pricing.html" class="header-menu__link">요금표</a>
+        <a href="contact.html" class="header-menu__link">문의하기</a>
+        <a href="" class="header-menu__link">메뉴1</a>
+        <a href="" class="header-menu__link">메뉴2</a>
+      </div>
+      <a href="login.html" class="header-menu-login">로그인</a>
     </nav>
     <nav class="header-right-menu">
       <a href="login.html" class="header-right-menu__link">로그인</a>
       <a href="sign-up.html" class="header-right-menu__link">무료 회원가입</a>
     </nav>
-    <button class="header-menu-button"></button>
+    <div class="header-menu-mobile">
+      <a href="sign-up.html" class="header-right-menu__link">무료 회원가입</a>
+      <button class="header-menu-button js-header-menu-button"></button>
+    </div>
   </div>
 </header>
 
@@ -418,7 +424,20 @@
   </main>
   <footer class="footer">
   <div class="layout">
-    <img src="assets/images/common/footer-logo.svg" alt="channel middleware">
+    <div class="footer-top">
+      <div class="footer-text">
+        <p class="footer-text__item">
+          채널미들웨어 주식회사<span class="footer-separator"></span>
+          대표자명 : 김윤상<span class="footer-separator"></span>
+          서울 송파구 송파대로 201, B동 913-1<span class="footer-separator"></span>
+          문의 : contact@channelm.kr<span class="footer-separator"></span>
+          사업자등록번호 872-81-02547<span class="footer-separator"></span>
+          통신판매 제2022-서울송파-2641호
+        </p>
+      </div>
+      <img src="assets/images/common/footer-logo.svg" alt="channel middleware">
+    </div>
+
     <div class="footer-text">
       <div class="footer-quick">
         <a href="" class="footer-quick__link">이용약관</a>

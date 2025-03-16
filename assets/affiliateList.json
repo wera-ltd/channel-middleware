@@ -1,90 +1,255 @@
 [
   {
     "name": "옥션",
-    "src": "/assets/images/affiliate/logo-0.svg",
+    "src": "assets/images/affiliate/logo-0.svg",
+    "status": "normal"
   },
   {
     "name": "지마켓",
-    "src": "/assets/images/affiliate/logo-1.svg",
+    "src": "assets/images/affiliate/logo-1.svg",
+    "status": "normal"
   },
   {
     "name": "스마트스토어",
-    "src": "/assets/images/affiliate/logo-2.svg",
+    "src": "assets/images/affiliate/logo-2.svg",
+    "status": "normal"
   },
   {
     "name": "11번가",
-    "src": "/assets/images/affiliate/logo-3.svg",
+    "src": "assets/images/affiliate/logo-3.svg",
+    "status": "normal"
   },
   {
     "name": "쿠팡",
-    "src": "/assets/images/affiliate/logo-4.svg",
+    "src": "assets/images/affiliate/logo-4.svg",
+    "status": "normal"
   },
   {
     "name": "롯데온",
-    "src": "/assets/images/affiliate/logo-5.svg",
+    "src": "assets/images/affiliate/logo-5.svg",
+    "status": "normal"
   },
   {
     "name": "위메프",
-    "src": "/assets/images/affiliate/logo-6.svg",
+    "src": "assets/images/affiliate/logo-6.svg",
+    "status": "normal"
   },
   {
     "name": "CJ온스타일",
-    "src": "/assets/images/affiliate/logo-7.svg",
+    "src": "assets/images/affiliate/logo-7.svg",
+    "status": "normal"
   },
   {
     "name": "GS홈쇼핑",
-    "src": "/assets/images/affiliate/logo-8.svg",
+    "src": "assets/images/affiliate/logo-8.svg",
+    "status": "normal"
   },
   {
     "name": "현대홈쇼핑",
-    "src": "/assets/images/affiliate/logo-9.svg",
+    "src": "assets/images/affiliate/logo-9.svg",
+    "status": "normal"
   },
   {
     "name": "신세계닷컴",
-    "src": "/assets/images/affiliate/logo-10.svg",
-  },
-  {
-    "name": "롯데아이몰",
-    "src": "/assets/images/affiliate/logo-11.svg",
-  },
-  {
-    "name": "신세계 백화점",
-    "src": "/assets/images/affiliate/logo-12.svg",
-  },
-  {
-    "name": "현대백화점",
-    "src": "/assets/images/affiliate/logo-13.svg",
-  },
-  {
-    "name": "카카오톡 쇼핑",
-    "src": "/assets/images/affiliate/logo-14.svg",
-  },
-  {
-    "name": "카카오톡 선물하기",
-    "src": "/assets/images/affiliate/logo-15.svg",
-  },
-  {
-    "name": "무신사",
-    "src": "/assets/images/affiliate/logo-16.svg",
-  },
-  {
-    "name": "에이블리",
-    "src": "/assets/images/affiliate/logo-17.svg",
-  },
-  {
-    "name": "보리보리",
-    "src": "/assets/images/affiliate/logo-18.svg",
-  },
-  {
-    "name": "하프클럽",
-    "src": "/assets/images/affiliate/logo-19.svg",
+    "src": "assets/images/affiliate/logo-10.svg",
+    "status": "normal"
   },
   {
     "name": "이마트",
-    "src": "/assets/images/affiliate/logo-20.svg",
+    "src": "assets/images/affiliate/logo-20.svg",
+    "status": "normal"
+  },
+
+  {
+    "name": "카카오톡 쇼핑",
+    "src": "assets/images/affiliate/logo-14.svg",
+    "status": "normal"
+  },
+  {
+    "name": "카카오톡 선물하기",
+    "src": "assets/images/affiliate/logo-15.svg",
+    "status": "normal"
+  },
+  {
+    "name": "고도몰5",
+    "src": "assets/images/affiliate/logo-22.svg",
+    "status": "normal"
+  },
+  {
+    "name": "메이크샵",
+    "src": "assets/images/affiliate/logo-23.svg",
+    "status": "normal"
+  },
+
+  {
+    "name": "샵바이",
+    "src": "assets/images/affiliate/logo-25.svg",
+    "status": "normal"
+  },
+  {
+    "name": "아임웹",
+    "src": "assets/images/affiliate/logo-36.svg",
+    "status": "normal"
+  },
+  {
+    "name": "29cm",
+    "src": "assets/images/affiliate/logo-37.svg",
+    "status": "normal"
+  },
+  {
+    "name": "무신사",
+    "src": "assets/images/affiliate/logo-16.svg",
+    "status": "normal"
+  },
+  {
+    "name": "에이블리",
+    "src": "assets/images/affiliate/logo-17.svg",
+    "status": "normal"
+  },
+  {
+    "name": "인터파크",
+    "src": "assets/images/affiliate/logo-38.svg",
+    "status": "normal"
   },
   {
     "name": "더현대",
-    "src": "/assets/images/affiliate/logo-19.svg",
+    "src": "assets/images/affiliate/logo-21.png",
+    "status": "normal"
   },
+  {
+    "name": "신세계 백화점",
+    "src": "assets/images/affiliate/logo-12.svg",
+    "status": "normal"
+  },
+  {
+    "name": "현대백화점(구)",
+    "src": "assets/images/affiliate/logo-9.svg",
+    "status": "normal"
+  },
+  {
+    "name": "하프클럽",
+    "src": "assets/images/affiliate/logo-19.svg",
+    "status": "normal"
+  },
+  {
+    "name": "보리보리",
+    "src": "assets/images/affiliate/logo-18.svg",
+    "status": "normal"
+  },
+  {
+    "name": "지그재그",
+    "src": "assets/images/affiliate/logo-30.svg",
+    "status": "normal"
+  },
+  {
+    "name": "텐바이텐",
+    "src": "assets/images/affiliate/logo-28.svg",
+    "status": "normal"
+  },
+  {
+    "name": "이랜드몰",
+    "src": "assets/images/affiliate/logo-29.svg",
+    "status": "normal"
+  },
+  {
+    "name": "쇼피 글로벌",
+    "src": "assets/images/affiliate/logo-34.svg",
+    "status": "normal"
+  },
+  {
+    "name": "마켓컬리",
+    "src": "assets/images/affiliate/logo-39.svg",
+    "status": "normal"
+  },
+  {
+    "name": "티몬",
+    "src": "assets/images/affiliate/logo-40.svg",
+    "status": "normal"
+  },
+  {
+    "name": "하고몰",
+    "src": "assets/images/affiliate/logo-33.svg",
+    "status": "normal"
+  },
+  {
+    "name": "롯데홈쇼핑",
+    "src": "assets/images/affiliate/logo-11.svg",
+    "status": "normal"
+  },
+  {
+    "name": "발란",
+    "src": "assets/images/affiliate/logo-41.svg",
+    "status": "normal"
+  },
+  {
+    "name": "올웨이즈",
+    "src": "assets/images/affiliate/logo-42.svg",
+    "status": "normal"
+  },
+  {
+    "name": "LG라이프케어",
+    "src": "assets/images/affiliate/logo-43.svg",
+    "status": "normal"
+  },
+  {
+    "name": "토스",
+    "src": "assets/images/affiliate/logo-44.svg",
+    "status": "normal"
+  },
+  {
+    "name": "하이버",
+    "src": "assets/images/affiliate/logo-45.svg",
+    "status": "normal"
+  },
+  {
+    "name": "브랜디",
+    "src": "assets/images/affiliate/logo-46.svg",
+    "status": "normal"
+  },
+  {
+    "name": "서울스토어",
+    "src": "assets/images/affiliate/logo-47.svg",
+    "status": "normal"
+  },
+  {
+    "name": "룩핀",
+    "src": "assets/images/affiliate/logo-48.svg",
+    "status": "normal"
+  },
+  {
+    "name": "도매꾹",
+    "src": "assets/images/affiliate/logo-49.svg",
+    "status": "normal"
+  },
+  {
+    "name": "오늘의집",
+    "src": "assets/images/affiliate/logo-26.svg",
+    "status": "preparing"
+  },
+  {
+    "name": "SSF샵",
+    "src": "assets/images/affiliate/logo-27.svg",
+    "status": "preparing"
+  },
+  {
+    "name": "W컨셉",
+    "src": "assets/images/affiliate/logo-31.svg",
+    "status": "preparing"
+  },
+  {
+    "name": "한섬EQL",
+    "src": "assets/images/affiliate/logo-32.svg",
+    "status": "preparing"
+  },
+
+  {
+    "name": "홈앤쇼핑",
+    "src": "assets/images/affiliate/logo-35.svg",
+    "status": "preparing"
+  },
+  {
+    "name": "카페24",
+    "src": "assets/images/affiliate/logo-24.svg",
+    "status": "preparing"
+  }
 ]

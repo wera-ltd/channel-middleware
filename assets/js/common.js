@@ -1,11 +1,3 @@
-// function checkDevice () {
-//   var pathName = location.pathname
-//   if (navigator.userAgent.match(/iPhone|iPad|Mobile|UP.Browser|Android|BlackBerry|Windows CE|Nokia|webOS|Opera Mini|SonyEricsson|opera mobi|Windows Phone|IEMobile|POLARIS/) != null){
-//     location.href = "/m" + pathName;
-//   }
-// }
-// checkDevice()
-
 $(function() {
   const width = $(window).width();
   // $('.js-header .header-menu').on('mouseover', function (){
@@ -29,11 +21,19 @@ $(function() {
     }, 800);
   })
 
-  $('.js-header-menu-button').on('click', function () {
-    $(this).parents('.js-header').toggleClass('is--open');
-  })
-  $('.js-header-menu-close-button').on('click', function (){
-    $(this).parents('.js-header').removeClass('is--open');
-  })
-
 });
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  const html = document.querySelector('html')
+  const header = document.querySelector('.js-header')
+  const headerMenuButton = document.querySelector('.js-header-menu-button')
+
+  headerMenuButton.addEventListener('click', (e) => {
+    header.classList.toggle('is--opened')
+    if (header.classList.contains('is--opened')) {
+      html.style.overflowY = 'hidden'
+    } else {
+      html.style.overflowY = 'auto'
+    }
+  })
+})
