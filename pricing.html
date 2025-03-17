@@ -9,121 +9,7 @@
   <meta id="meta_og_title" property="og:title" content="채널미들웨어 | 요금표">
   <meta name="description" content="채널미들웨어 | 요금표">
   <meta property="og:description" content="채널미들웨어 | 요금표">
-  <style>
-      .container {
-          width: 600px;
-          max-width: 90%;
-          padding: 40px;
-          background-color: white;
-          border-radius: 10px;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      }
-
-      h1 {
-          font-size: 24px;
-          margin-bottom: 30px;
-          text-align: center;
-      }
-
-      .slider-container {
-          position: relative;
-          margin-bottom: 40px;
-      }
-
-      .slider {
-          -webkit-appearance: none;
-          width: 100%;
-          height: 8px;
-          border-radius: 4px;
-          background: #e0e0e0;
-          outline: none;
-          cursor: pointer;
-      }
-
-      .slider::-webkit-slider-thumb {
-          -webkit-appearance: none;
-          appearance: none;
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          background: var(--thumb-color, #3498db);
-          cursor: pointer;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-          transition: background 0.3s;
-      }
-
-      .slider::-moz-range-thumb {
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          background: var(--thumb-color, #3498db);
-          cursor: pointer;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-          transition: background 0.3s;
-          border: none;
-      }
-
-      .slider::-webkit-slider-thumb:hover {
-          background: var(--thumb-hover-color, #2980b9);
-      }
-
-      .slider::-moz-range-thumb:hover {
-          background: var(--thumb-hover-color, #2980b9);
-      }
-
-      .slider-progress {
-          height: 8px;
-          background: var(--progress-color, #3498db);
-          border-radius: 4px 0 0 4px;
-          position: absolute;
-          top: 0;
-          left: 0;
-          pointer-events: none;
-      }
-
-      .slider-value {
-          position: relative;
-          width: 100%;
-          text-align: center;
-          margin-top: 20px;
-          font-size: 18px;
-          font-weight: bold;
-      }
-
-      .slider-labels {
-          display: flex;
-          justify-content: space-between;
-          margin-top: 10px;
-          color: #666;
-      }
-
-      .custom-slider {
-          margin-bottom: 30px;
-      }
-
-      .custom-slider h2 {
-          font-size: 18px;
-          margin-bottom: 15px;
-          color: #555;
-      }
-
-      .custom-slider:last-child {
-          margin-bottom: 0;
-      }
-
-      .slider.blue {
-          --thumb-color: #3498db;
-          --thumb-hover-color: #2980b9;
-          --progress-color: #3498db;
-      }
-
-      .slider.red {
-          --thumb-color: #e74c3c;
-          --thumb-hover-color: #c0392b;
-          --progress-color: #e74c3c;
-      }
-
-  </style>
+  <style></style>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#000000">
@@ -184,86 +70,139 @@
   </div>
 </header>
 
-  <article class="section contact-section">
-    <div class="layout section-text fade-content">
-      <h1 class="common__title">요금표</h1>
-      <div class="container" v-scope="Slider()">
-        <h1>요금제 선택</h1>
-        <div>
+  <article class="section pricing-content">
+    <div class="layout">
+      <header class="price-header">
+        <h1 class="price__title">채널미들웨어 요금표</h1>
+<!--        <p class="price__description">-->
+<!--          여러 쇼핑몰에 입점한 셀러들의 필수템, 채널미들웨어 재고 컨트롤의 어려움을 없애고 편리하고 빠른<br/>-->
+<!--          재고 시스템으로 셀러님의 판매 경험에 날개를 펼쳐보세요!-->
+<!--        </p>-->
+      </header>
+      <article class="price-calculate-container" v-scope="Slider()">
+        <h2 class="price-calculate__title">버전을 선택하시면 제공되는 사용한도를 보실수 있어요!</h2>
+
+        <div class="price-version">
           <div
+            class="price-version__item"
             :class="order.selected === 'BASIC' ? 'selected' : ''"
             @click="order.selected = 'BASIC'"
           >
-            <h3>베이직</h3>
+            <h3 class="price-version__name">베이직</h3>
+            <span class="price-version__price">
+              <strong>5만원</strong>/월
+            </span>
+            <p class="price-version__content">
+              300건/<br/>
+              스케줄 횟수 4회
+            </p>
           </div>
           <div
+            class="price-version__item"
             :class="order.selected === 'PRO' ? 'selected' : ''"
             @click="order.selected = 'PRO'"
           >
-            <h3>프로</h3>
+            <h3 class="price-version__name">프로</h3>
+            <span class="price-version__price">
+              <strong>12만원</strong>/월
+            </span>
+            <p class="price-version__content">
+              600건/<br/>
+              스케줄 횟수 4회
+            </p>
           </div>
           <div
+            class="price-version__item"
             :class="order.selected === 'PREMIUM' ? 'selected' : ''"
             @click="order.selected = 'PREMIUM'"
           >
-            <h3>프리미엄</h3>
+            <h3 class="price-version__name">프리미엄</h3>
+            <span class="price-version__price">
+              <strong>18만원</strong>/월
+            </span>
+            <p class="price-version__content">
+              1200건/<br/>
+              스케줄 횟수 4회
+            </p>
           </div>
           <div
+            class="price-version__item"
             :class="order.selected === 'PLATINUM' ? 'selected' : ''"
             @click="order.selected = 'PLATINUM'"
           >
-            <h3>플래티넘</h3>
+            <h3 class="price-version__name">플래티넘</h3>
+            <span class="price-version__price">
+              <strong>28만원</strong>/월
+            </span>
+            <p class="price-version__content">
+              2000건/<br/>
+              스케줄 횟수 4회
+            </p>
           </div>
           <div
+            class="price-version__item"
             :class="order.selected === 'ENTERPRISE' ? 'selected' : ''"
             @click="order.selected = 'ENTERPRISE'"
           >
-            <h3>엔터프라이즈</h3>
+            <h3 class="price-version__name">엔터프라이즈</h3>
+            <span class="price-version__price">
+              <strong>??만원</strong>/월
+            </span>
+            <p class="price-version__content">
+              사용자 지정/<br/>
+              스케줄 횟수 4회
+            </p>
           </div>
         </div>
-        <div class="custom-slider">
-          <h2>갯수 슬라이더</h2>
-          <div class="slider-container">
-            <input type="range"
-                   class="slider blue"
-                   v-model="count.value"
-                   :min="count.min"
-                   :max="count.max"
-                   :step="count.step">
-            <div class="slider-progress" :style="{ width: count.percentage + '%' }"></div>
+        <div class="price-calculate-content">
+          <div class="price-calculate-content-left price-calculate-content-content">
+            <div class="custom-slider">
+              <h2>갯수 슬라이더</h2>
+              <div class="slider-container">
+                <input type="range"
+                       class="slider blue"
+                       v-model="count.value"
+                       :min="count.min"
+                       :max="count.max"
+                       :step="count.step">
+                <div class="slider-progress" :style="{ width: count.percentage + '%' }"></div>
+              </div>
+              <div class="slider-labels">
+                <span>{{ count.min }}</span>
+                <span>{{ count.max }}</span>
+              </div>
+              <div class="slider-value">value {{ count.displayValue }}</div>
+              <div class="slider-value">가격 {{ count.price }}</div>
+            </div>
+            <!-- 스케쥴 -->
+            <div class="custom-slider">
+              <h2>스케쥴 슬라이더 </h2>
+              <div class="slider-container">
+                <input type="range"
+                       class="slider red"
+                       v-model="schedule.value"
+                       :min="schedule.min"
+                       :max="schedule.max"
+                       :step="schedule.step">
+                <div class="slider-progress" :style="{ width: schedule.percentage + '%' }"></div>
+              </div>
+              <div class="slider-labels">
+                <span>4</span>
+                <span>{{ schedule.max }}</span>
+              </div>
+              <div class="slider-value">value {{ schedule.displayValue }}</div>
+              <div class="slider-value">가격 {{ schedule.price }}</div>
+            </div>
           </div>
-          <div class="slider-labels">
-            <span>{{ count.min }}</span>
-            <span>{{ count.max }}</span>
+          <div class="price-calculate-content-right price-calculate-content-content">
+            <button>reset버튼</button>
+            <p>건수:</p>
+            <p>스케줄횟수:</p>
+            총 가격: {{ sumPrice }}
           </div>
-          <div class="slider-value">value {{ count.displayValue }}</div>
-          <div class="slider-value">가격 {{ count.price }}</div>
         </div>
 
-        <!-- 스케쥴 -->
-        <div class="custom-slider">
-          <h2>스케쥴 슬라이더 </h2>
-          <div class="slider-container">
-            <input type="range"
-                   class="slider red"
-                   v-model="schedule.value"
-                   :min="schedule.min"
-                   :max="schedule.max"
-                   :step="schedule.step">
-            <div class="slider-progress" :style="{ width: schedule.percentage + '%' }"></div>
-          </div>
-          <div class="slider-labels">
-            <span>4</span>
-            <span>{{ schedule.max }}</span>
-          </div>
-          <div class="slider-value">value {{ schedule.displayValue }}</div>
-          <div class="slider-value">가격 {{ schedule.price }}</div>
-        </div>
-
-        <div >
-          총 가격: {{ sumPrice }}
-        </div>
-      </div>
+      </article>
       <script>
         function Slider (props) {
           return {
@@ -326,9 +265,6 @@
         // petite-vue 초기화
         PetiteVue.createApp().mount();
       </script>
-      <p class="common__description">
-        궁금하신 점이 있으시면 언제든 문의해주세요.
-      </p>
     </div>
   </article>
   <article class="section faq-section">
