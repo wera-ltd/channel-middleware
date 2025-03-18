@@ -93,8 +93,7 @@
               <strong>5만원</strong>/월
             </span>
             <p class="price-version__content">
-              300건/<br/>
-              스케줄 횟수 4회
+              300건
             </p>
           </div>
           <div
@@ -107,8 +106,7 @@
               <strong>12만원</strong>/월
             </span>
             <p class="price-version__content">
-              600건/<br/>
-              스케줄 횟수 4회
+              600건
             </p>
           </div>
           <div
@@ -121,8 +119,7 @@
               <strong>18만원</strong>/월
             </span>
             <p class="price-version__content">
-              1200건/<br/>
-              스케줄 횟수 4회
+              1200건
             </p>
           </div>
           <div
@@ -135,8 +132,7 @@
               <strong>28만원</strong>/월
             </span>
             <p class="price-version__content">
-              2000건/<br/>
-              스케줄 횟수 4회
+              2000건
             </p>
           </div>
           <div
@@ -149,57 +145,89 @@
               <strong>??만원</strong>/월
             </span>
             <p class="price-version__content">
-              사용자 지정/<br/>
-              스케줄 횟수 4회
+              사용자 지정
             </p>
           </div>
         </div>
         <div class="price-calculate-content">
           <div class="price-calculate-content-left price-calculate-content-content">
+            <div class="price-calculate-content-text">
+              <strong class="price-calculate-content__title">요금계산기</strong>
+              <p class="price-calculate-content__description">
+                슬라이드를 움직여서 요금을 확인해보세요
+              </p>
+            </div>
+            <!-- 건수 -->
             <div class="custom-slider">
-              <h2>갯수 슬라이더</h2>
+              <h2 class="custom-slider__name">건수</h2>
               <div class="slider-container">
                 <input type="range"
-                       class="slider blue"
+                       class="slider-content"
                        v-model="count.value"
                        :min="count.min"
                        :max="count.max"
-                       :step="count.step">
-                <div class="slider-progress" :style="{ width: count.percentage + '%' }"></div>
+                       :step="count.step"
+                >
+                <div class="slider-progress" :style="{ width: count.percentage + '%' }">
+                </div>
+                <span
+                  class="slider-progress__value"
+                  :style="{ left: `${count.percentage === 0 ? 2 : count.percentage >=99 ? 98 : count.percentage}%` }"
+                >
+                  {{ count.displayValue }}
+                </span>
               </div>
-              <div class="slider-labels">
-                <span>{{ count.min }}</span>
-                <span>{{ count.max }}</span>
+              <div class="slider-range-labels">
+                <span>{{ count.min.toLocaleString('ko-KR') }}</span>
+                <span>max {{ count.max.toLocaleString('ko-KR') }}</span>
               </div>
-              <div class="slider-value">value {{ count.displayValue }}</div>
-              <div class="slider-value">가격 {{ count.price }}</div>
             </div>
             <!-- 스케쥴 -->
             <div class="custom-slider">
-              <h2>스케쥴 슬라이더 </h2>
+              <h2 class="custom-slider__name">스케줄 횟수</h2>
               <div class="slider-container">
                 <input type="range"
-                       class="slider red"
+                       class="slider-content"
                        v-model="schedule.value"
                        :min="schedule.min"
                        :max="schedule.max"
                        :step="schedule.step">
                 <div class="slider-progress" :style="{ width: schedule.percentage + '%' }"></div>
+                <span
+                  class="slider-progress__value"
+                  :style="{ left: `${schedule.percentage === 0 ? 2 : schedule.percentage >=99 ? 98 : schedule.percentage}%` }"
+                >
+                  {{ schedule.displayValue }}
+                </span>
               </div>
-              <div class="slider-labels">
+              <div class="slider-range-labels">
                 <span>4</span>
-                <span>{{ schedule.max }}</span>
+                <span>max {{ schedule.max }}</span>
               </div>
-              <div class="slider-value">value {{ schedule.displayValue }}</div>
-              <div class="slider-value">가격 {{ schedule.price }}</div>
             </div>
           </div>
-          <div class="price-calculate-content-right price-calculate-content-content">
-            <button>reset버튼</button>
-            <p>건수:</p>
-            <p>스케줄횟수:</p>
-            총 가격: {{ sumPrice }}
-          </div>
+          <article class="price-calculate-content-right price-calculate-content-content">
+            <div class="price-result-top">
+              <h2 class="price-result__title">Your Plan</h2>
+              <button class="price-result__reset-button">초기화</button>
+            </div>
+            <div class="price-result-middle">
+              <p class="price-result-middle__item">건수 <strong>{{ count.displayValue }}</strong></p>
+              <p class="price-result-middle__item">스케줄 횟수 <strong>{{ schedule.displayValue }}</strong></p>
+            </div>
+            <div class="price-result-bottom">
+              <strong class="price-result__total-title">총 가격</strong>
+              <div class="price-result-total">
+<!--                <mark class="price-result-start-text">시작가</mark>-->
+                <div class="price-result-total-price">
+                  <strong class="price-result__price">{{ sumPrice.toLocaleString('ko-KR') }}</strong>
+                  <mark class="price-result__price-unit">원 /월</mark>
+                </div>
+              </div>
+            </div>
+            <button class="price-result-total__link">무료 회원가입</button>
+
+          </article>
         </div>
 
       </article>
@@ -215,25 +243,25 @@
               value: 3000,
               step: 1000,
               get price() {
-                if (this.value == 3000 ) {
+                if (this.value === 3000 ) {
                   return 360000;
                 }
-                if (this.value == 4000 ) {
+                if (this.value === 4000 ) {
                   return 480000;
                 }
-                if (this.value == 5000 ) {
+                if (this.value === 5000 ) {
                   return 540000;
                 }
                 return this.value * 100;
               },
 
               get displayValue() {
-                return this.value;
+                return this.value.toLocaleString('ko-KR');
               },
 
               get percentage() {
                 return ((this.value - this.min) / (this.max - this.min)) * 100;
-              },
+              }
             },
             schedule: {
               min: 0,

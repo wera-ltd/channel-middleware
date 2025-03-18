@@ -347,7 +347,7 @@ body.is--overflow-hidden {
   }
 }
 .login .login-right-area .login-notice__link {
-  color: #11C1AC;
+  color: #A7A7A7;
   text-decoration: underline;
   display: block;
   text-align: center;
@@ -398,25 +398,25 @@ body.is--overflow-hidden {
 }
 .login .login-input:read-only {
   background: #F7F7F7;
-  border: 1px solid #DBDBDB;
+  border: 1px solid #A7A7A7;
 }
 .login .login-input::placeholder {
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
-  color: #CBCBCB;
+  color: #DFDFDF;
 }
 .login .login-input::-webkit-input-placeholder {
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
-  color: #CBCBCB;
+  color: #DFDFDF;
 }
 .login .login-input:-ms-input-placeholder {
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
-  color: #CBCBCB;
+  color: #DFDFDF;
 }
 .login .login-input:focus {
   outline: none;
@@ -428,19 +428,19 @@ body.is--overflow-hidden {
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
-  color: #CBCBCB;
+  color: #8C8C8C;
 }
 .login .login-input::-webkit-input-placeholder {
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
-  color: #CBCBCB;
+  color: #8C8C8C;
 }
 .login .login-input:-ms-input-placeholder {
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
-  color: #CBCBCB;
+  color: #8C8C8C;
 }
 .login .login-input + .login-input {
   margin-top: 20px;
@@ -461,7 +461,7 @@ body.is--overflow-hidden {
   font-size: 18px;
   font-weight: 500;
   line-height: 165%;
-  box-shadow: 0px 14px 14px rgba(31, 138, 128, 0.15);
+  box-shadow: 0px 14px 14px #ddd;
 }
 .login .login-button:disabled {
   background: #EAEAEA;
@@ -489,5 +489,5 @@ body.is--overflow-hidden {
   height: 14px;
   margin: 0 12px;
   display: block;
-  background: #DBDBDB;
+  background: #A7A7A7;
 }

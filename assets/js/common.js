@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const header = document.querySelector('.js-header')
   const headerMenuButton = document.querySelector('.js-header-menu-button')
 
-  headerMenuButton.addEventListener('click', (e) => {
+  headerMenuButton?.addEventListener('click', (e) => {
     header.classList.toggle('is--opened')
     if (header.classList.contains('is--opened')) {
       html.style.overflowY = 'hidden'
