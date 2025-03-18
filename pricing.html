@@ -83,71 +83,71 @@
         <h2 class="price-calculate__title">버전을 선택하시면 제공되는 사용한도를 보실수 있어요!</h2>
 
         <div class="price-version">
-          <div
+          <button
             class="price-version__item"
             :class="selected === 'BASIC' ? 'selected' : ''"
             @click="handleSelectOrder('BASIC')"
           >
-            <h3 class="price-version__name">베이직</h3>
+            <strong class="price-version__name">베이직</strong>
             <span class="price-version__price">
-              <strong>5만원</strong>/월
+              <strong>50,000</strong> 원/월
             </span>
-            <p class="price-version__content">
+            <i class="price-version__content">
               300건
-            </p>
-          </div>
-          <div
+            </i>
+          </button>
+          <button
             class="price-version__item"
             :class="selected === 'PRO' ? 'selected' : ''"
             @click="handleSelectOrder('PRO')"
           >
-            <h3 class="price-version__name">프로</h3>
+            <strong class="price-version__name">프로</strong>
             <span class="price-version__price">
-              <strong>12만원</strong>/월
+              <strong>120,000</strong> 원/월
             </span>
-            <p class="price-version__content">
+            <i class="price-version__content">
               600건
-            </p>
-          </div>
-          <div
+            </i>
+          </button>
+          <button
             class="price-version__item"
             :class="selected === 'PREMIUM' ? 'selected' : ''"
             @click="handleSelectOrder('PREMIUM')"
           >
-            <h3 class="price-version__name">프리미엄</h3>
+            <strong class="price-version__name">프리미엄</strong>
             <span class="price-version__price">
-              <strong>18만원</strong>/월
+               <strong>180,000</strong> 원/월
             </span>
-            <p class="price-version__content">
-              1200건
-            </p>
-          </div>
-          <div
+            <i class="price-version__content">
+              1,200건
+            </i>
+          </button>
+          <button
             class="price-version__item"
             :class="selected === 'PLATINUM' ? 'selected' : ''"
             @click="handleSelectOrder('PLATINUM')"
           >
-            <h3 class="price-version__name">플래티넘</h3>
+            <strong class="price-version__name">플래티넘</strong>
             <span class="price-version__price">
-              <strong>28만원</strong>/월
+              <strong>280,000</strong> 원/월
             </span>
-            <p class="price-version__content">
-              2000건
-            </p>
-          </div>
-          <div
+            <i class="price-version__content">
+              2,000건
+            </i>
+          </button>
+          <button
             class="price-version__item"
             :class="selected === 'ENTERPRISE' ? 'selected' : ''"
             @click="handleSelectOrder('ENTERPRISE')"
           >
-            <h3 class="price-version__name">엔터프라이즈</h3>
+            <strong class="price-version__name">엔터프라이즈</strong>
             <span class="price-version__price">
-              <strong>??만원</strong>/월
+              <strong>??만원</strong> 원/월
             </span>
-            <p class="price-version__content">
+            <i class="price-version__content">
               사용자 지정
-            </p>
-          </div>
+            </i>
+          </button>
         </div>
         <div class="price-calculate-content">
           <div class="price-calculate-content-left price-calculate-content-content">
@@ -159,34 +159,69 @@
             </div>
             <!-- 건수 -->
             <div class="custom-slider">
-              <h2 class="custom-slider__name">건수</h2>
-              <div class="slider-container">
-                <input
-                  type="range"
-                  class="slider-content"
-                  v-model="count.value"
-                  :min="count.min"
-                  :max="count.max"
-                  :step="count.step"
-                  :disabled="selected !== 'ENTERPRISE'"
-                >
-                <div class="slider-progress" :style="{ width: count.percentage + '%' }">
-                </div>
-                <span
-                  class="slider-progress__value"
-                  :style="{ left: `${count.percentage === 0 ? 2 : count.percentage >= 99 ? 98 : count.percentage}%` }"
-                >
+              <div class="custom-slider-top">
+                <h2 class="custom-slider__name">건수</h2>
+                <p class="slider-notice-text" v-if="selected !== 'ENTERPRISE'">
+                  해당 버전은 건수를 조정할수 없어요!
+                </p>
+                <p class="slider-notice-text is--active" v-else>
+                  원하는 만큼 건수를 조정해보세요!
+                </p>
+              </div>
+              <div v-if="selected === 'ENTERPRISE'" class="slider-container-area">
+                <div class="slider-container">
+                  <input
+                    type="range"
+                    class="slider-content"
+                    v-model="count.value"
+                    :min="count.min"
+                    :max="count.max"
+                    :step="count.step"
+                    :disabled="selected !== 'ENTERPRISE'"
+                  >
+                  <div class="slider-progress" :style="{ width: count.percentage + '%' }">
+                  </div>
+                  <span
+                    class="slider-progress__value"
+                    :style="{ left: `${count.percentage === 0 ? 2 : count.percentage >= 99 ? 98 : count.percentage}%` }"
+                  >
                   {{ count.displayValue }}
                 </span>
+                </div>
+                <div class="slider-range-labels">
+                  <span>{{ count.min.toLocaleString('ko-KR') }}</span>
+                  <span>max {{ count.max.toLocaleString('ko-KR') }}</span>
+                </div>
               </div>
-              <div class="slider-range-labels">
-                <span>{{ count.min.toLocaleString('ko-KR') }}</span>
-                <span>max {{ count.max.toLocaleString('ko-KR') }}</span>
+              <div v-else class="slider-container-area">
+                <div class="slider-container is--disabled">
+                  <div class="slider-content"></div>
+                  <div
+                    class="slider-progress"
+                    :style="{ width: otherCount.value/otherCount.max * 100  + '%' }"
+                  ></div>
+                  <span
+                    class="slider-progress-circle"
+                    :style="{ left: `${ otherCount.value/otherCount.max * 100 === 0 ? 2 :  otherCount.value/otherCount.max * 100  >= 99 ? 98 :  otherCount.value/otherCount.max * 100 }%` }"
+                  ></span>
+                  <span
+                    class="slider-progress__value"
+                    :style="{ left: `${ otherCount.value/otherCount.max * 100 === 0 ? 2 :  otherCount.value/otherCount.max * 100  >= 99 ? 98 :  otherCount.value/otherCount.max * 100 }%` }"
+                    >{{ otherCount.value }}
+                  </span>
+                </div>
+                <div class="slider-range-labels">
+                  <span>0</span>
+                  <span>max {{ otherCount.max }}</span>
+                </div>
               </div>
+
             </div>
             <!-- 스케쥴 -->
             <div class="custom-slider">
-              <h2 class="custom-slider__name">스케줄 횟수</h2>
+              <div class="custom-slider-top">
+                <h2 class="custom-slider__name">스케줄 횟수</h2>
+              </div>
               <div class="slider-container">
                 <input
                   type="range"
@@ -222,15 +257,13 @@
             <div class="price-result-bottom">
               <strong class="price-result__total-title">총 가격</strong>
               <div class="price-result-total">
-<!--                <mark class="price-result-start-text">시작가</mark>-->
                 <div class="price-result-total-price">
                   <strong class="price-result__price">{{ sumPrice.toLocaleString('ko-KR') }}</strong>
-                  <mark class="price-result__price-unit">원 /월</mark>
+                  <mark class="price-result__price-unit">원/월 (vat 별도)</mark>
                 </div>
               </div>
             </div>
             <button class="price-result-total__link">무료 회원가입</button>
-
           </article>
         </div>
 
@@ -243,42 +276,58 @@
               this.selected = selected;
               switch (selected) {
                 case 'BASIC':
-                  this.count.value = 300;
+                  this.otherCount.value = 300;
                   break;
                 case 'PRO':
-                  this.count.value = 600;
+                  this.otherCount.value = 600;
                   break;
                 case 'PREMIUM':
-                  this.count.value = 1200;
+                  this.otherCount.value = 1200;
                   break;
                 case 'PLATINUM':
-                  this.count.value = 2000;
-                  break;
-                case 'ENTERPRISE':
-                  this.count.value = 3000;
+                  this.otherCount.value = 2000;
                   break;
               }
             },
-            count: {
-              min: 3000,
-              max: 30000,
-              value: 3000,
-              step: 1000,
+            otherCount: {
+              min: 300,
+              max: 2000,
+              value: 300,
+
               get price() {
-                if (this.value == 3000 ) {
-                  return 360000;
-                }
-                if (this.value == 4000 ) {
-                  return 480000;
-                }
-                if (this.value == 5000 ) {
-                  return 540000;
-                }
+                if (this.value == 300) return 50000;
+                if (this.value == 600) return 120000;
+                if (this.value == 1200) return 180000;
+                if (this.value == 2000) return 280000;
+                return 50000;
+              },
+
+            },
+            count: {
+              min: 0,
+              max: 30000,
+              _value: 3000, // 내부적으로 사용할 변수
+              step: 1000,
+
+              get value() {
+                return this._value;
+              },
+
+              set value(newValue) {
+                this._value = Math.max(3000, newValue); // 최소값을 3000으로 제한
+              },
+
+              get price() {
+                if (this.value == 3000 ) return 360000;
+                if (this.value == 4000 ) return 480000;
+                if (this.value == 5000 ) return 540000;
                 return this.value * 100;
               },
+
               get displayValue() {
-                return this.value.toLocaleString('ko-KR');
+                return Number(this.value).toLocaleString('ko-KR');
               },
+
               get percentage() {
                 return ((this.value - this.min) / (this.max - this.min)) * 100;
               }
@@ -302,7 +351,7 @@
               },
             },
             get sumPrice() {
-              return this.count.price + this.schedule.price;
+              return (this.selected === 'ENTERPRISE' ? this.count.price : this.otherCount.price) + this.schedule.price;
             },
           }
         }
@@ -311,6 +360,9 @@
         PetiteVue.createApp().mount();
       </script>
     </div>
+  </article>
+  <article class="feature-section">
+
   </article>
   <article class="section faq-section">
     <img src="assets/images/main/faq-pattern1.png" alt="" class="faq-pattern faq-pattern1">
