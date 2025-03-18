@@ -85,8 +85,8 @@
         <div class="price-version">
           <div
             class="price-version__item"
-            :class="order.selected === 'BASIC' ? 'selected' : ''"
-            @click="order.selected = 'BASIC'"
+            :class="selected === 'BASIC' ? 'selected' : ''"
+            @click="handleSelectOrder('BASIC')"
           >
             <h3 class="price-version__name">베이직</h3>
             <span class="price-version__price">
@@ -98,8 +98,8 @@
           </div>
           <div
             class="price-version__item"
-            :class="order.selected === 'PRO' ? 'selected' : ''"
-            @click="order.selected = 'PRO'"
+            :class="selected === 'PRO' ? 'selected' : ''"
+            @click="handleSelectOrder('PRO')"
           >
             <h3 class="price-version__name">프로</h3>
             <span class="price-version__price">
@@ -111,8 +111,8 @@
           </div>
           <div
             class="price-version__item"
-            :class="order.selected === 'PREMIUM' ? 'selected' : ''"
-            @click="order.selected = 'PREMIUM'"
+            :class="selected === 'PREMIUM' ? 'selected' : ''"
+            @click="handleSelectOrder('PREMIUM')"
           >
             <h3 class="price-version__name">프리미엄</h3>
             <span class="price-version__price">
@@ -124,8 +124,8 @@
           </div>
           <div
             class="price-version__item"
-            :class="order.selected === 'PLATINUM' ? 'selected' : ''"
-            @click="order.selected = 'PLATINUM'"
+            :class="selected === 'PLATINUM' ? 'selected' : ''"
+            @click="handleSelectOrder('PLATINUM')"
           >
             <h3 class="price-version__name">플래티넘</h3>
             <span class="price-version__price">
@@ -137,8 +137,8 @@
           </div>
           <div
             class="price-version__item"
-            :class="order.selected === 'ENTERPRISE' ? 'selected' : ''"
-            @click="order.selected = 'ENTERPRISE'"
+            :class="selected === 'ENTERPRISE' ? 'selected' : ''"
+            @click="handleSelectOrder('ENTERPRISE')"
           >
             <h3 class="price-version__name">엔터프라이즈</h3>
             <span class="price-version__price">
@@ -161,18 +161,20 @@
             <div class="custom-slider">
               <h2 class="custom-slider__name">건수</h2>
               <div class="slider-container">
-                <input type="range"
-                       class="slider-content"
-                       v-model="count.value"
-                       :min="count.min"
-                       :max="count.max"
-                       :step="count.step"
+                <input
+                  type="range"
+                  class="slider-content"
+                  v-model="count.value"
+                  :min="count.min"
+                  :max="count.max"
+                  :step="count.step"
+                  :disabled="selected !== 'ENTERPRISE'"
                 >
                 <div class="slider-progress" :style="{ width: count.percentage + '%' }">
                 </div>
                 <span
                   class="slider-progress__value"
-                  :style="{ left: `${count.percentage === 0 ? 2 : count.percentage >=99 ? 98 : count.percentage}%` }"
+                  :style="{ left: `${count.percentage === 0 ? 2 : count.percentage >= 99 ? 98 : count.percentage}%` }"
                 >
                   {{ count.displayValue }}
                 </span>
@@ -186,12 +188,14 @@
             <div class="custom-slider">
               <h2 class="custom-slider__name">스케줄 횟수</h2>
               <div class="slider-container">
-                <input type="range"
-                       class="slider-content"
-                       v-model="schedule.value"
-                       :min="schedule.min"
-                       :max="schedule.max"
-                       :step="schedule.step">
+                <input
+                  type="range"
+                  class="slider-content"
+                  v-model="schedule.value"
+                  :min="schedule.min"
+                  :max="schedule.max"
+                  :step="schedule.step"
+                >
                 <div class="slider-progress" :style="{ width: schedule.percentage + '%' }"></div>
                 <span
                   class="slider-progress__value"
@@ -234,8 +238,26 @@
       <script>
         function Slider (props) {
           return {
-            order: {
-              selected: 'BASIC', // BASIC, PRO, PREMIUM, PLATINUM, ENTERPRISE
+            selected: 'BASIC', // BASIC, PRO, PREMIUM, PLATINUM, ENTERPRISE
+            handleSelectOrder(selected) {
+              this.selected = selected;
+              switch (selected) {
+                case 'BASIC':
+                  this.count.value = 300;
+                  break;
+                case 'PRO':
+                  this.count.value = 600;
+                  break;
+                case 'PREMIUM':
+                  this.count.value = 1200;
+                  break;
+                case 'PLATINUM':
+                  this.count.value = 2000;
+                  break;
+                case 'ENTERPRISE':
+                  this.count.value = 3000;
+                  break;
+              }
             },
             count: {
               min: 3000,
@@ -243,22 +265,20 @@
               value: 3000,
               step: 1000,
               get price() {
-                if (this.value === 3000 ) {
+                if (this.value == 3000 ) {
                   return 360000;
                 }
-                if (this.value === 4000 ) {
+                if (this.value == 4000 ) {
                   return 480000;
                 }
-                if (this.value === 5000 ) {
+                if (this.value == 5000 ) {
                   return 540000;
                 }
                 return this.value * 100;
               },
-
               get displayValue() {
                 return this.value.toLocaleString('ko-KR');
               },
-
               get percentage() {
                 return ((this.value - this.min) / (this.max - this.min)) * 100;
               }
@@ -271,19 +291,16 @@
               get price() {
                 return this.value * 5000
               },
-
               get displayValue() {
                 if (this.value == 0) {
                   return 4
                 }
                 return this.value
               },
-
               get percentage() {
                 return ((this.value - this.min) / (this.max - this.min)) * 100;
               },
             },
-
             get sumPrice() {
               return this.count.price + this.schedule.price;
             },
