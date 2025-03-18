@@ -70,6 +70,7 @@
   </div>
 </header>
 
+  <!--  요금제 계산-->
   <article class="section pricing-content">
     <div class="layout">
       <header class="price-header">
@@ -79,9 +80,8 @@
 <!--          재고 시스템으로 셀러님의 판매 경험에 날개를 펼쳐보세요!-->
 <!--        </p>-->
       </header>
-      <article class="price-calculate-container" v-scope="Slider()">
+      <article class="price-calculate-container pricing-layout" v-scope="Slider()">
         <h2 class="price-calculate__title">버전을 선택하시면 제공되는 사용한도를 보실수 있어요!</h2>
-
         <div class="price-version">
           <button
             class="price-version__item"
@@ -362,37 +362,120 @@
       </script>
     </div>
   </article>
+  <!--  요금제 계산-->
+  <!--  포함된 기능-->
   <article class="feature-section">
-
+    <div class="pricing-layout">
+      <header class="price-header">
+        <h2 class="price__title">포함된 기능</h2>
+      </header>
+      <div class="feature-content-area">
+        <div class="feature-content">
+          <div class="feature-content-item feature-content-item-head">기능 항목</div>
+          <div class="feature-content-item feature-content-item-head">베이직</div>
+          <div class="feature-content-item feature-content-item-head">프로</div>
+          <div class="feature-content-item feature-content-item-head">프리미엄</div>
+          <div class="feature-content-item feature-content-item-head">플래티넘</div>
+          <div class="feature-content-item feature-content-item-head">엔터프라이즈</div>
+          <div class="feature-content-item feature-content-item-content">항목1</div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+          <div class="feature-content-item feature-content-item-content">
+          </div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+          <div class="feature-content-item feature-content-item-content">항목2</div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+          <div class="feature-content-item feature-content-item-content">
+          </div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+          <div class="feature-content-item feature-content-item-content">항목3</div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+          <div class="feature-content-item feature-content-item-content">
+          </div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+          <div class="feature-content-item feature-content-item-content">항목4</div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+          <div class="feature-content-item feature-content-item-content">
+          </div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+          <div class="feature-content-item feature-content-item-content"></div>
+          <div class="feature-content-item feature-content-item-content">항목5</div>
+          <div class="feature-content-item feature-content-item-content"></div>
+          <div class="feature-content-item feature-content-item-content"></div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+          <div class="feature-content-item feature-content-item-content">
+            <img src="assets/images/common/check-circle.svg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
   </article>
+  <!--  포함된 기능-->
+  <!-- FAQ -->
   <article class="section faq-section">
-    <img src="assets/images/main/faq-pattern1.png" alt="" class="faq-pattern faq-pattern1">
-    <img src="assets/images/main/faq-pattern2.png" alt="" class="faq-pattern faq-pattern2">
-    <img src="assets/images/main/faq-pattern3.png" alt="" class="faq-pattern faq-pattern3">
-    <img src="assets/images/main/faq-pattern4.png" alt="" class="faq-pattern faq-pattern4">
-    <img src="assets/images/main/faq-pattern5.png" alt="" class="faq-pattern faq-pattern5">
-    <div class="layout section-text fade-content">
-      <h1 class="common__title">FAQ</h1>
-      <p class="common__description">
-        가장 많이 물어보시는 질문을 모아 답변해드립니다.<br/>
-        보다 정확한 답변을 원하신다면 문의하기를 이용해주세요.
-      </p>
+    <div class="pricing-layout">
+      <header class="price-header">
+        <h1 class="price__title">FAQ</h1>
+        <p class="price__description">
+          가장 많이 물어보시는 질문을 모아 답변해드립니다.<br/>
+          보다 정확한 답변을 원하신다면 문의하기를 이용해주세요.
+        </p>
+      </header>
+
       <ul class="faq-list">
         <li class="faq-list__item js-faq-list-item first">
           <div class="faq-list__item-question">
             <mark class="faq-list__item-mark">Q.</mark>
             <p class="faq-list__item-content">
-              타 서비스 대비 장점은 무엇인가요?
+              채널미들웨어 솔루션은 무엇인가요?
             </p>
           </div>
           <div class="faq-list__item-answer-area js-faq-answer-area">
             <div class="faq-list__item-answer js-faq-answer">
               <mark class="faq-list__item-mark">A.</mark>
               <p class="faq-list__item-content">
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변
+                인증받은 기술로 관리하고 계신 품목과 판매처 채널을 연결하여 실시간으로 재고를 동기화 및 관리하는 솔루션 입니다.
               </p>
             </div>
           </div>
@@ -401,18 +484,14 @@
           <div class="faq-list__item-question">
             <mark class="faq-list__item-mark">Q.</mark>
             <p class="faq-list__item-content">
-              채널미들웨어 엔어셋 등 쇼핑몰 솔류션의
-              환경이나 구조가 어떻게 되나요?
+              채널미들웨어를 이용하면 어떤 이점이 있나요?
             </p>
           </div>
           <div class="faq-list__item-answer-area js-faq-answer-area">
             <div class="faq-list__item-answer js-faq-answer">
               <mark class="faq-list__item-mark">A.</mark>
               <p class="faq-list__item-content">
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변
+                재고가 온라인 판매처에 실시간으로 동기화 및 관리가 되어서 불편한 고객 안내와 패널티에 대한 시간과 비용을 줄이실 수 있습니다.
               </p>
             </div>
           </div>
@@ -421,18 +500,14 @@
           <div class="faq-list__item-question">
             <mark class="faq-list__item-mark">Q.</mark>
             <p class="faq-list__item-content">
-              쇼핑몰 솔루션 신청 시 매달 비용이 발생
-              되나요?
+              채널미들웨어 이용료가 궁금합니다.
             </p>
           </div>
           <div class="faq-list__item-answer-area js-faq-answer-area">
             <div class="faq-list__item-answer js-faq-answer">
               <mark class="faq-list__item-mark">A.</mark>
               <p class="faq-list__item-content">
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변
+                트래픽 기반의 월 정액제 요금으로 문의 주시면 상담을 통해 안내 드리도록 하겠습니다.
               </p>
             </div>
           </div>
@@ -441,18 +516,14 @@
           <div class="faq-list__item-question">
             <mark class="faq-list__item-mark">Q.</mark>
             <p class="faq-list__item-content">
-              셋팅완료 문자를 받았는데, 접속이 되지
-              않아요.
+              어느 쇼핑몰을 지원하나요?
             </p>
           </div>
           <div class="faq-list__item-answer-area js-faq-answer-area">
             <div class="faq-list__item-answer js-faq-answer">
               <mark class="faq-list__item-mark">A.</mark>
               <p class="faq-list__item-content">
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변
+                국내외 주요 온라인 판매처 채널을 지원하며, 앞으로도 많은 쇼핑 판매처 채널이 추가 될 예정입니다.
               </p>
             </div>
           </div>
@@ -461,18 +532,15 @@
           <div class="faq-list__item-question">
             <mark class="faq-list__item-mark">Q.</mark>
             <p class="faq-list__item-content">
-              Standard 플랜은 평생 무료로 사용 가능
-              한가요?
+              회원 가입 방법과 조건이 있나요?
             </p>
           </div>
           <div class="faq-list__item-answer-area js-faq-answer-area">
             <div class="faq-list__item-answer js-faq-answer">
               <mark class="faq-list__item-mark">A.</mark>
               <p class="faq-list__item-content">
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변
+                회원가입은 PC에서만 가능합니다. 그리고, 채널미들웨어는 사업자를 위한 서비스로 법인/개인 사업자가 사용하실 수 있습니다. 사업자 등록이 되어있지 않은
+                일반 개인회원은 사용이 불가능합니다.
               </p>
             </div>
           </div>
@@ -481,17 +549,14 @@
           <div class="faq-list__item-question">
             <mark class="faq-list__item-mark">Q.</mark>
             <p class="faq-list__item-content">
-              신청 전 개발소스를 확인 해볼 수 있나요?
+              도입 방법이 궁금합니다.
             </p>
           </div>
           <div class="faq-list__item-answer-area js-faq-answer-area">
             <div class="faq-list__item-answer js-faq-answer">
               <mark class="faq-list__item-mark">A.</mark>
               <p class="faq-list__item-content">
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변
-                답변답변답변답변답변답변답변답변답변답변답변
+                도입에 대한 상담이 필요하신 분은 제휴사 채널 또는 회원 가입후 문의 주시면 순차적으로 안내 드리도록 하겠습니다.
               </p>
             </div>
           </div>
@@ -499,6 +564,7 @@
       </ul>
     </div>
   </article>
+  <!-- FAQ -->
   <footer class="footer">
   <div class="layout">
     <div class="footer-top">
@@ -538,5 +604,20 @@
 
 </div>
 <script>
+  $('.js-faq-list-item').on('click', function () {
+    const answer = $(this).find('.js-faq-answer')
+    if ($(this).hasClass('open')) {
+      $(this).find('.js-faq-answer-area').animate({ 'height': 0, 'margin-bottom': 0 }, 300)
+    } else {
+      if ($(window).width() >= 1280) {
+        if ($(this).hasClass('first')) {
+          $(this).animate({ 'margin-bottom': '24px' }, 300)
+        }
+      }
+      $(this).find('.js-faq-answer-area').animate({ 'height': answer[0].offsetHeight + 'px' }, 300)
+    }
+
+    $(this).toggleClass('open')
+  })
 </script>
 </body>
