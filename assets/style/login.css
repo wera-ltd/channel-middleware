@@ -129,8 +129,14 @@ html {
 }
 @media screen and (max-width: 1024px) {
   .layout {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media screen and (max-width: 490px) {
+  .layout {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 
@@ -393,12 +399,12 @@ body.is--overflow-hidden {
   -webkit-appearance: none;
 }
 .login .login-input:focus {
-  border: 1px solid #031527;
+  border: 1px solid #0568FD;
   outline: none;
 }
 .login .login-input:read-only {
   background: #F7F7F7;
-  border: 1px solid #A7A7A7;
+  border: 1px solid #DFDFDF;
 }
 .login .login-input::placeholder {
   font-size: 14px;
@@ -453,7 +459,7 @@ body.is--overflow-hidden {
   padding: 0;
   display: inline-block;
   border: none;
-  background: #031527;
+  background: #0568FD;
   border-radius: 60px;
   box-sizing: border-box;
   color: #ffffff;
@@ -471,6 +477,11 @@ body.is--overflow-hidden {
 .login .login-button:not(:disabled):hover {
   border-color: rgba(5, 104, 253, 0.5);
   background: rgba(5, 104, 253, 0.5);
+}
+.login .login-button.outline:not(:disabled):hover {
+  border-color: rgba(5, 104, 253, 0.5);
+  background: rgba(5, 104, 253, 0.5);
+  color: #ffffff;
 }
 .login .login-link-area {
   font-size: 13px;

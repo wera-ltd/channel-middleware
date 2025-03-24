@@ -1320,8 +1320,14 @@ html {
 }
 @media screen and (max-width: 1024px) {
   .layout {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media screen and (max-width: 490px) {
+  .layout {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 

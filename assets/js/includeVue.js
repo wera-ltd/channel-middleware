@@ -70,7 +70,7 @@ const affiliateModal = {
           <button class="affiliate-list-modal-close" @click="hideAffiliateModal">
             <img src="assets/images/common/delete.svg" alt="">
           </button>
-          <h1 class="common__title">지원 가능한 판매채널 리스트</h1>
+          <h1 class="affiliate__title">지원 가능한 판매채널 리스트</h1>
          <div class="affiliate-search-box">
             <div class="affiliate-search">
               <label for="search" class="blind"></label>

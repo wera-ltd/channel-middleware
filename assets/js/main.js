@@ -121,11 +121,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
   }
 
-  section0Motion()
-
+  //section1
   const section1Motion = () => {
+    const section1 = document.querySelector('.js-section1');
     const section2 = document.querySelector('.js-section2');
     const section1Content = document.querySelector('.js-section1-content')
+    const video = section1.querySelector('.js-section1-video');
+    const textElements = section1.querySelectorAll('.section1-text > *');
+
 
     // 사라지면서 아래로 내려오는 섹션 모션작업
     gsap.to(section1Content, {
@@ -135,12 +138,55 @@ document.addEventListener('DOMContentLoaded', (event) => {
       ease: 'none',
       scrollTrigger: {
         trigger: section2, // 트리거 요소
-        start: 'top 70%',      // .section2 상단이 뷰포트 70%에 닿을 때 시작
+        start: 'top 60%',      // .section2 상단이 뷰포트 70%에 닿을 때 시작
         end: 'bottom 160%',        // .section2 하단이 뷰포트 160%에 닿을 때 종료
         scrub: true,              // 스크롤에 따라 부드럽게 반응 (1초 지연)
-        markers: true         // 디버깅용 마커 (필요 시 true로 변경)
       }
     })
+    // 초기 상태 설정
+    gsap.set(textElements, { opacity: 0, y: -50 });
+
+    const playAnimation = () => {
+      video.play(); // 비디오 재생
+      gsap.to(textElements, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2, // 요소별 애니메이션 딜레이
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    }
+
+    const stopAnimation = () => {
+      video.pause(); // 비디오 정지
+      video.currentTime = 0
+      gsap.to(textElements, {
+        opacity: 0,
+        y: -50,
+        duration: 0.5,
+        ease: 'power3.in'
+      });
+    }
+
+    // 스크롤 트리거 설정
+    ScrollTrigger.create({
+      trigger: section1,
+      start: 'top 60%', // section1 상단이 뷰포트 하단의 70%에 닿을 때
+      end: 'bottom 20%', // section1 하단이 뷰포트의 50%에 닿을 때
+      scrub: true,
+      onEnter: () => {
+        playAnimation()
+      },
+      onEnterBack: () => {
+        playAnimation()
+      },
+      onLeaveBack: () => {
+        stopAnimation()
+      },
+      onLeave: () => {
+        stopAnimation()
+      },
+    });
   }
 
   //section2 의 모션
@@ -699,13 +745,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
   }
 
-  // section3 브랜드 리스트 회전
-  const section3BrandMotion = () => {
+  // section3
+  const section3Motion = () => {
     // section3 브랜드 카드 효과 모션
     const section3BehindContent = document.querySelector('.js-brand-behind-content')
     const section3 = document.querySelector('.js-section3')
-    gsap.set(section3BehindContent, {opacity: 0, y: -251});
+    const reviewContents = section3.querySelectorAll('.js-section3-review-item')
 
+    gsap.set(section3BehindContent, {opacity: 0, y: -251});
+    gsap.set(reviewContents, { opacity: 0, y: -80 });
+
+    // section3BehindContent 위에서 아래로 나타나는 모션
     gsap.to(section3BehindContent, {
       opacity: 1,              // opacity를 1에서 0으로
       y: 0,           // translateY를 0에서 120%로
@@ -718,45 +768,64 @@ document.addEventListener('DOMContentLoaded', (event) => {
       }
     })
 
-    // 브랜드 로고 흐르는 모션
-    const flowingInner = document.querySelector('.js-flowing-inner');
-    const flowingItems = flowingInner.querySelectorAll('.js-flowing-item');
+    mm.add('(min-width: 780px)', () => {
+      // 브랜드 로고 흐르는 모션
+      const flowingInner = document.querySelector('.js-flowing-inner');
+      const flowingItems = flowingInner.querySelectorAll('.js-flowing-item');
 
-// 원본 아이템을 충분히 복사 (최소 6세트)
-    const originalItems = Array.from(flowingItems);
-    for (let i = 0; i < 5; i++) { // 원본 1세트 + 추가 5세트 = 총 6세트
-      originalItems.forEach(item => {
-        const clone = item.cloneNode(true); // 깊은 복사로 요소 복제
-        flowingInner.appendChild(clone);
-      });
-    }
-
-// 브랜드 리스트 무한 스와이프
-    let currentScroll = 0;
-    let isScrollingDown = true;
-
-    let tween = gsap.to('.js-flowing-inner', { // .js-flowing-item 대신 .js-flowing-inner 전체 이동
-      xPercent: -300, // 컨테이너 절반 이동으로 조정
-      repeat: -1,
-      duration: 50, // 더 긴 주기로 자연스럽게
-      ease: 'linear'
-    }).totalProgress(0.5);
-
-    gsap.set('.js-flowing-inner', {xPercent: -25}); // 초기 위치 조정 (컨테이너의 25% 이동)
-
-    window.addEventListener('scroll', function () {
-      if ((window.scrollY || window.pageYOffset) > currentScroll) {
-        isScrollingDown = true;
-      } else {
-        isScrollingDown = false;
+      // 원본 아이템을 충분히 복사 (최소 6세트)
+      const originalItems = Array.from(flowingItems);
+      for (let i = 0; i < 5; i++) { // 원본 1세트 + 추가 5세트 = 총 6세트
+        originalItems.forEach(item => {
+          const clone = item.cloneNode(true); // 깊은 복사로 요소 복제
+          flowingInner.appendChild(clone);
+        });
       }
 
-      gsap.to(tween, {
-        timeScale: isScrollingDown ? 1 : -1
-      });
+      // 브랜드 리스트 무한 스와이프
+      let currentScroll = 0;
+      let isScrollingDown = true;
 
-      currentScroll = window.scrollY || window.pageYOffset;
-    });
+      let tween = gsap.to('.js-flowing-inner', { // .js-flowing-item 대신 .js-flowing-inner 전체 이동
+        xPercent: -300, // 컨테이너 절반 이동으로 조정
+        repeat: -1,
+        duration: 50, // 더 긴 주기로 자연스럽게
+        ease: 'linear'
+      }).totalProgress(0.5);
+
+      gsap.set('.js-flowing-inner', {xPercent: -25}); // 초기 위치 조정 (컨테이너의 25% 이동)
+
+      window.addEventListener('scroll', function () {
+        if ((window.scrollY || window.pageYOffset) > currentScroll) {
+          isScrollingDown = true;
+        } else {
+          isScrollingDown = false;
+        }
+
+        gsap.to(tween, {
+          timeScale: isScrollingDown ? 1 : -1
+        });
+
+        currentScroll = window.scrollY || window.pageYOffset;
+      });
+    })
+
+    //reviewcontent 나타나는 모션
+    const tl = gsap.timeline()
+    reviewContents.forEach((review) => {
+      tl.to(review, {
+        opacity: 1,
+        y: 1,
+        stagger: 0.2,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: review,
+          start: 'bottom bottom',
+          end: 'top 20%',
+          scrub: true,
+        },
+      })
+    })
   }
 
   //section4
@@ -768,19 +837,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
     gsap.to(section3PartnerBehindContent, {
       opacity: 0,              // opacity를 1에서 0으로
       yPercent: 120,           // translateY를 0에서 120%로
-      ease: 'power2.out',      // 부드러운 easing
+      ease: 'none',      // 부드러운 easing
       scrollTrigger: {
         trigger: section4, // 트리거 요소
-        start: 'top 75%',      // .section4 상단이 뷰포트 70%에 닿을 때 시작
+        start: 'top 90%',      // .section4 상단이 뷰포트 70%에 닿을 때 시작
         end: 'bottom 100%',        // .section4 하단이 뷰포트 160%에 닿을 때 종료
-        scrub: true,              // 스크롤에 따라 부드럽게 반응 (1초 지연)
-        markers: false         // 디버깅용 마커 (필요 시 true로 변경)
+        scrub: true              // 스크롤에 따라 부드럽게 반응 (1초 지연)
       }
     })
   }
+
   checkHeaderPosition()
+  section0Motion()
   section1Motion()
   section2Motion()
-  section3BrandMotion()
+  section3Motion()
   section4Motion()
 });
