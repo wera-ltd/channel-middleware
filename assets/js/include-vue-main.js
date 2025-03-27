@@ -3,6 +3,7 @@ const modalState = ref(false)
 const html = document.querySelector('html')
 const section4MoreButton = document.querySelector('.js-section4-more-button')
 
+// 메인 섹션 제휴사 부분
 section4MoreButton.addEventListener('click', () => {
   html.style.overflowY = 'hidden'
   showAffiliateModal()

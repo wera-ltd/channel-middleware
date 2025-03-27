@@ -9,7 +9,6 @@
   <meta id="meta_og_title" property="og:title" content="채널미들웨어 | 요금표">
   <meta name="description" content="채널미들웨어 | 요금표">
   <meta property="og:description" content="채널미들웨어 | 요금표">
-  <style></style>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#000000">
@@ -39,9 +38,11 @@
   <link rel="stylesheet" href="assets/style/style.css">
   <script src="assets/js/vendors/jquery.min.js"></script>
   <script src="assets/js/vendors/aos.js"></script>
-  <script src="assets/js/vendors/petite-vue.js"></script>
   <script src="assets/js/common.js"></script>
 
+  <script src="assets/js/vendors/unpkg.com_vue@3.3.4_dist_vue.global.js"></script>
+  <script src="assets/js/vendors/vuetify@3.7.19_dist_vuetify.min.js"></script>
+  <link href="assets/style/vendors/vuetify@3.7.19_dist_vuetify-labs.css" rel="stylesheet">
 </head>
 <body>
 <div class="sub">
@@ -75,17 +76,13 @@
     <div class="layout">
       <header class="price-header">
         <h1 class="price__title">채널미들웨어 요금표</h1>
-<!--        <p class="price__description">-->
-<!--          여러 쇼핑몰에 입점한 셀러들의 필수템, 채널미들웨어 재고 컨트롤의 어려움을 없애고 편리하고 빠른<br/>-->
-<!--          재고 시스템으로 셀러님의 판매 경험에 날개를 펼쳐보세요!-->
-<!--        </p>-->
       </header>
-      <article class="price-calculate-container pricing-layout" v-scope="Slider()">
+      <article id="calculatePriceArticle" class="price-calculate-container pricing-layout">
         <h2 class="price-calculate__title">버전을 선택하시면 제공되는 사용한도를 보실수 있어요!</h2>
         <div class="price-version">
           <button
             class="price-version__item"
-            :class="selected === 'BASIC' ? 'selected' : ''"
+            :class="{'selected' : selected === 'BASIC'}"
             @click="handleSelectOrder('BASIC')"
           >
             <strong class="price-version__name">베이직</strong>
@@ -98,7 +95,7 @@
           </button>
           <button
             class="price-version__item"
-            :class="selected === 'PRO' ? 'selected' : ''"
+            :class="{'selected' : selected === 'PRO'}"
             @click="handleSelectOrder('PRO')"
           >
             <strong class="price-version__name">프로</strong>
@@ -111,7 +108,7 @@
           </button>
           <button
             class="price-version__item"
-            :class="selected === 'PREMIUM' ? 'selected' : ''"
+            :class="{'selected' : selected === 'PREMIUM'}"
             @click="handleSelectOrder('PREMIUM')"
           >
             <strong class="price-version__name">프리미엄</strong>
@@ -124,7 +121,7 @@
           </button>
           <button
             class="price-version__item"
-            :class="selected === 'PLATINUM' ? 'selected' : ''"
+            :class="{'selected' : selected === 'PLATINUM'}"
             @click="handleSelectOrder('PLATINUM')"
           >
             <strong class="price-version__name">플래티넘</strong>
@@ -137,7 +134,7 @@
           </button>
           <button
             class="price-version__item"
-            :class="selected === 'ENTERPRISE' ? 'selected' : ''"
+            :class="{'selected' : selected === 'ENTERPRISE'}"
             @click="handleSelectOrder('ENTERPRISE')"
           >
             <strong class="price-version__name">엔터프라이즈</strong>
@@ -168,200 +165,122 @@
                   원하는 만큼 건수를 조정해보세요!
                 </p>
               </div>
+              <!-- ENTERPRISE 일때 start -->
               <div v-if="selected === 'ENTERPRISE'" class="slider-container-area">
-                <div class="slider-container">
-                  <input
-                    type="range"
-                    class="slider-content"
-                    v-model="count.value"
-                    :min="count.min"
-                    :max="count.max"
-                    :step="count.step"
-                    :disabled="selected !== 'ENTERPRISE'"
-                  >
-                  <div class="slider-progress" :style="{ width: count.percentage + '%' }">
-                  </div>
-                  <span
-                    class="slider-progress__value"
-                    :style="{ left: `${count.percentage === 0 ? 2 : count.percentage >= 99 ? 98 : count.percentage}%` }"
-                  >
-                  {{ count.displayValue }}
-                </span>
-                </div>
+                <v-slider
+                  v-model="enterpriseCount.inputValue"
+                  :min="enterpriseCount.min"
+                  :max="enterpriseCount.max"
+                  :step="enterpriseCount.step"
+                  thumb-label="always"
+                  thumb-size="18"
+                  thumb-color="#0568FD"
+                  track-color="#D4E6FF"
+                  track-fill-color="#0568FD"
+                  hide-details
+                >
+                  <template v-slot:thumb-label="{ modelValue }">
+                    {{ modelValue.toLocaleString('ko-KR') }}
+                  </template>
+                </v-slider>
                 <div class="slider-range-labels">
-                  <span>{{ count.min.toLocaleString('ko-KR') }}</span>
-                  <span>max {{ count.max.toLocaleString('ko-KR') }}</span>
+                  <span>{{ enterpriseCount.min.toLocaleString('ko-KR') }}</span>
+                  <span>max {{ enterpriseCount.max.toLocaleString('ko-KR') }}</span>
                 </div>
               </div>
+              <!-- ENTERPRISE 일때 end -->             
+              <!-- BASIC, PRO, PREMIUM, PLATINUM 일때 start -->
               <div v-else class="slider-container-area">
-                <div class="slider-container is--disabled">
-                  <div class="slider-content"></div>
-                  <div
-                    class="slider-progress"
-                    :style="{ width: otherCount.value/otherCount.max * 100  + '%' }"
-                  ></div>
-                  <span
-                    class="slider-progress-circle"
-                    :style="{ left: `${ otherCount.value/otherCount.max * 100 === 0 ? 2 :  otherCount.value/otherCount.max * 100  >= 99 ? 98 :  otherCount.value/otherCount.max * 100 }%` }"
-                  ></span>
-                  <span
-                    class="slider-progress__value"
-                    :style="{ left: `${ otherCount.value/otherCount.max * 100 === 0 ? 2 :  otherCount.value/otherCount.max * 100  >= 99 ? 98 :  otherCount.value/otherCount.max * 100 }%` }"
-                    >{{ otherCount.value }}
-                  </span>
-                </div>
+                <v-slider
+                  disabled
+                  v-model="otherCount.inputValue"
+                  :min="otherCount.min"
+                  :max="otherCount.max"
+                  :step="otherCount.step"
+                  thumb-label="always"
+                  thumb-size="18"
+                  thumb-color="#0568FD"
+                  track-color="#D4E6FF"
+                  track-fill-color="#8C8C8C"
+                  hide-details
+                >
+                  <template v-slot:thumb-label="{ modelValue }">
+                    {{ modelValue.toLocaleString('ko-KR') }}
+                  </template>
+                </v-slider>
                 <div class="slider-range-labels">
-                  <span>0</span>
-                  <span>max {{ otherCount.max }}</span>
+                  <span>{{ otherCount.min.toLocaleString('ko-KR') }}</span>
+                  <span>max {{ otherCount.max.toLocaleString('ko-KR') }}</span>
                 </div>
               </div>
-
+              <!-- BASIC, PRO, PREMIUM, PLATINUM 일때 end -->
             </div>
             <!-- 스케쥴 -->
             <div class="custom-slider">
               <div class="custom-slider-top">
                 <h2 class="custom-slider__name">스케줄 횟수</h2>
               </div>
-              <div class="slider-container">
-                <input
-                  type="range"
-                  class="slider-content"
-                  v-model="schedule.value"
+              <div class="slider-container-area">
+                <v-slider
+                  v-model="schedule.inputValue"
                   :min="schedule.min"
                   :max="schedule.max"
                   :step="schedule.step"
+                  thumb-label="always"
+                  thumb-size="18"
+                  thumb-color="#0568FD"
+                  track-color="#D4E6FF"
+                  track-fill-color="#0568FD"
+                  hide-details
                 >
-                <div class="slider-progress" :style="{ width: schedule.percentage + '%' }"></div>
-                <span
-                  class="slider-progress__value"
-                  :style="{ left: `${schedule.percentage === 0 ? 2 : schedule.percentage >=99 ? 98 : schedule.percentage}%` }"
-                >
-                  {{ schedule.displayValue }}
-                </span>
-              </div>
-              <div class="slider-range-labels">
-                <span>4</span>
-                <span>max {{ schedule.max }}</span>
+                  <template v-slot:thumb-label="{ modelValue }">
+                    {{ scheduleDisplayValue }}
+                  </template>
+                </v-slider>
+                <div class="slider-range-labels">
+                  <span>4</span>
+                  <span>max {{ schedule.max }}</span>
+                </div>
               </div>
             </div>
           </div>
           <article class="price-calculate-content-right price-calculate-content-content">
             <div class="price-result-top">
               <h2 class="price-result__title">Your Plan</h2>
-              <button class="price-result__reset-button">초기화</button>
+              <button
+                class="price-result__reset-button"
+                @click="handleSelectOrder('BASIC')"
+              >초기화
+              </button>
             </div>
             <div class="price-result-middle">
-              <p class="price-result-middle__item">건수 <strong>{{ count.displayValue }}</strong></p>
-              <p class="price-result-middle__item">스케줄 횟수 <strong>{{ schedule.displayValue }}</strong></p>
+              <p class="price-result-middle__item">
+                건수
+                <strong>{{ selected === 'ENTERPRISE' ? enterpriseCountDisplayValue : otherCountDisplayValue }}</strong>
+              </p>
+              <p class="price-result-middle__item">
+                스케줄 횟수
+                <strong>{{ scheduleDisplayValue }}</strong>
+              </p>
             </div>
             <div class="price-result-bottom">
               <strong class="price-result__total-title">총 가격</strong>
               <div class="price-result-total">
-<!--                <mark class="price-result-start-text">(vat 별도)</mark>-->
                 <div class="price-result-total-price">
-                  <strong class="price-result__price">{{ sumPrice.toLocaleString('ko-KR') }}</strong>
-                  <mark class="price-result__price-unit">원/월 (vat 별도)</mark>
+                  <strong class="price-result__price">{{ sumPrice }}</strong>
+                  <mark class="price-result__price-unit">원/월 <span>(vat 별도)</span></mark>
                 </div>
               </div>
             </div>
             <button class="price-result-total__link">무료 회원가입</button>
           </article>
         </div>
-
       </article>
-      <script>
-        function Slider (props) {
-          return {
-            selected: 'BASIC', // BASIC, PRO, PREMIUM, PLATINUM, ENTERPRISE
-            handleSelectOrder(selected) {
-              this.selected = selected;
-              switch (selected) {
-                case 'BASIC':
-                  this.otherCount.value = 300;
-                  break;
-                case 'PRO':
-                  this.otherCount.value = 600;
-                  break;
-                case 'PREMIUM':
-                  this.otherCount.value = 1200;
-                  break;
-                case 'PLATINUM':
-                  this.otherCount.value = 2000;
-                  break;
-              }
-            },
-            otherCount: {
-              min: 300,
-              max: 2000,
-              value: 300,
-
-              get price() {
-                if (this.value == 300) return 50000;
-                if (this.value == 600) return 120000;
-                if (this.value == 1200) return 180000;
-                if (this.value == 2000) return 280000;
-                return 50000;
-              },
-
-            },
-            count: {
-              min: 0,
-              max: 30000,
-              _value: 3000, // 내부적으로 사용할 변수
-              step: 1000,
-
-              get value() {
-                return this._value;
-              },
-
-              set value(newValue) {
-                this._value = Math.max(3000, newValue); // 최소값을 3000으로 제한
-              },
-
-              get price() {
-                if (this.value == 3000 ) return 360000;
-                if (this.value == 4000 ) return 480000;
-                if (this.value == 5000 ) return 540000;
-                return this.value * 100;
-              },
-
-              get displayValue() {
-                return Number(this.value).toLocaleString('ko-KR');
-              },
-
-              get percentage() {
-                return ((this.value - this.min) / (this.max - this.min)) * 100;
-              }
-            },
-            schedule: {
-              min: 0,
-              max: 50,
-              value: 0,
-              step: 10,
-              get price() {
-                return this.value * 5000
-              },
-              get displayValue() {
-                if (this.value == 0) {
-                  return 4
-                }
-                return this.value
-              },
-              get percentage() {
-                return ((this.value - this.min) / (this.max - this.min)) * 100;
-              },
-            },
-            get sumPrice() {
-              return (this.selected === 'ENTERPRISE' ? this.count.price : this.otherCount.price) + this.schedule.price;
-            },
-          }
-        }
-
-        // petite-vue 초기화
-        PetiteVue.createApp().mount();
-      </script>
+      <script src="assets/js/include-vue-pricing.js"></script>
     </div>
   </article>
+
+
   <!--  요금제 계산-->
   <!--  포함된 기능-->
   <article class="feature-section">

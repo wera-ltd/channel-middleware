@@ -510,9 +510,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
       };
     });
 
-    // 1340이하
-    mm.add('(max-width: 1340px)', () => {
-      console.log('max-width:1340')
+    // 1340이하 780이상
+    mm.add('(max-width: 1340px) and (min-width: 780px)', () => {
+      console.log('max-width:1340 780이상')
       // this setup code only runs when viewport is at least 800px wide
       document.querySelectorAll('.overview-content-inner').forEach((section, index) => {
         const cards = section.querySelectorAll('.overview-content-card')
@@ -743,6 +743,166 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // custom cleanup code here (runs when it STOPS matching)
       };
     });
+
+      // 779이하
+      mm.add('(max-width: 779px)', () => {
+        console.log('max-width:779')
+        // this setup code only runs when viewport is at least 800px wide
+        document.querySelectorAll('.overview-content-inner').forEach((section, index) => {
+          const cards = section.querySelectorAll('.overview-content-card')
+          const header = section.querySelector('.overview-content-header')
+          const tabButtons = document.querySelectorAll('.js-overview-tab-button')
+          const allSections = document.querySelectorAll('.overview-content-inner')
+          const allVideos = document.querySelectorAll('.js-overview-video')
+          const cardInners = section.querySelectorAll('.overview-content-card-inner') // card-inner 선택
+
+          // 초기 상태 설정
+          gsap.set(header, { opacity: 0, y: 24 });
+          gsap.set(cards, { opacity: 0, y: 24 });
+
+          // 비디오 감지 및 재생/정지 로직
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                const video = entry.target.querySelector('.js-overview-video');
+                const cardInner = entry.target.querySelector('.overview-content-card-inner');
+                if (video) {
+                  if (entry.isIntersecting) {
+                    if (video.paused) {
+                      video.play().catch(() => {});
+                    }
+                    if (cardInner) {
+                      cardInner.classList.add('is--active');
+                    }
+                  } else {
+                    video.pause();
+                    video.currentTime = 0;
+                    if (cardInner) {
+                      cardInner.classList.remove('is--active');
+                    }
+                  }
+                }
+              });
+            },
+            { threshold: 0.5 } // 수평 스크롤 내에서 50% 이상 보여야 활성화
+          );
+
+          // 모든 카드에 감시자 추가
+          cards.forEach((card,index) => {
+            observer.observe(card);
+          });
+
+          // 기본 모션
+          ScrollTrigger.create({
+            trigger: section,
+            start: '40% bottom',
+            end: '100% bottom',
+            onEnter: () => {
+              gsap.to(header, {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power2.out'
+              });
+              gsap.to(cards, {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                stagger: 0.3,
+                ease: 'power2.out'
+              });
+            },
+            onToggle: (self) => {
+              const prevSection = index > 0 ? allSections[index - 1] : null;
+              const prevHeader = prevSection ? prevSection.querySelector('.overview-content-header') : null;
+              const prevCards = prevSection ? prevSection.querySelectorAll('.overview-content-card') : null;
+
+              if (self.isActive && prevSection) {
+                gsap.to(prevHeader, {
+                  opacity: 0,
+                  y: 24,
+                  duration: 0.8,
+                  ease: 'power2.out'
+                });
+                gsap.to(prevCards, {
+                  opacity: 0,
+                  y: 24,
+                  duration: 1.2,
+                  stagger: 0.3,
+                  ease: 'power2.out'
+                });
+              }
+            },
+            onLeaveBack: () => {
+              gsap.to(header, {
+                opacity: 0,
+                y: 24,
+                duration: 0.8,
+                ease: 'power2.out'
+              });
+              gsap.to(cards, {
+                opacity: 0,
+                y: 24,
+                duration: 1.2,
+                stagger: 0.3,
+                ease: 'power2.out'
+              });
+            }
+          });
+
+          // 실행 후 위로 올라가는 모션
+          ScrollTrigger.create({
+            trigger: section,
+            start: 'top 50%',
+            end: 'bottom 20%',
+            onEnterBack: () => {
+              gsap.to(header, {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power2.out'
+              });
+              gsap.to(cards, {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                stagger: 0.3,
+                ease: 'power2.out'
+              });
+            }
+          });
+
+          // 탭 버튼 상태 업데이트
+          ScrollTrigger.create({
+            trigger: section,
+            start: 'top 70%',
+            end: 'bottom 30%',
+            onUpdate: (self) => {
+              const progress = self.progress;
+              if (progress > 0 && progress < 1) {
+                updateTab(index);
+              }
+            },
+            markers: false
+          });
+
+          // 탭 버튼 업데이트 함수
+          function updateTab(activeIndex) {
+            tabButtons.forEach((button, btnIndex) => {
+              if (btnIndex === activeIndex) {
+                button.classList.add('is--active');
+              } else {
+                button.classList.remove('is--active');
+              }
+            });
+          }
+        });
+  
+  
+        return () => { // optional
+          // custom cleanup code here (runs when it STOPS matching)
+        };
+      });
   }
 
   // section3
@@ -789,7 +949,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       let tween = gsap.to('.js-flowing-inner', { // .js-flowing-item 대신 .js-flowing-inner 전체 이동
         xPercent: -300, // 컨테이너 절반 이동으로 조정
         repeat: -1,
-        duration: 50, // 더 긴 주기로 자연스럽게
+        duration: 70, // 더 긴 주기로 자연스럽게
         ease: 'linear'
       }).totalProgress(0.5);
 
