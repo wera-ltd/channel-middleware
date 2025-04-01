@@ -1936,7 +1936,7 @@ body.is--overflow-hidden {
 @media screen and (max-width: 779px) {
   .section0-content .section0-text0 {
     bottom: auto;
-    top: 450px;
+    top: 500px;
   }
 }
 @media screen and (max-width: 479px) {
@@ -2006,9 +2006,9 @@ body.is--overflow-hidden {
   left: 0;
   clip-path: inset(1px 1px);
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1439px) {
   .section0-video {
-    object-fit: contain;
+    height: 100%;
   }
 }
 @media screen and (max-width: 779px) {
@@ -2034,6 +2034,7 @@ body.is--overflow-hidden {
   z-index: 1;
   display: flex;
   overflow: hidden;
+  background: #ffffff;
 }
 
 .section0-text {
