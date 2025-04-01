@@ -21,7 +21,7 @@ const affiliateModal = {
 
     // 지원가능한 판매채널 리스트
     const fetchAffiliateList = () => {
-      fetch('/assets/affiliateList.json')
+      fetch('assets/affiliateList.json')
         .then(response => response.json())
         .then(data => {
           affiliateList.value = data
