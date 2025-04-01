@@ -2181,7 +2181,8 @@ body.is--overflow-hidden {
   border-radius: 18px;
   gap: 3rem;
   display: grid;
-  grid-template-columns: auto 44%;
+  grid-template: "video text" 1fr/minmax(44%, 580px) 1fr;
+  align-items: center;
 }
 @media screen and (max-width: 1279px) {
   .section1 .section1-content-inner .section1-content-contents {
@@ -2316,7 +2317,7 @@ body.is--overflow-hidden {
 @media screen and (min-width: 780px) {
   .section1 .section1-text {
     flex: none;
-    margin-top: 0;
+    margin-top: 24px;
   }
 }
 .section1 .section1-text .section1-text-content {
@@ -2326,7 +2327,7 @@ body.is--overflow-hidden {
 }
 @media screen and (min-width: 1340px) {
   .section1 .section1-text .section1-text-content {
-    margin-top: 64px;
+    margin-top: 32px;
   }
 }
 .section1 .section1-text .section1-text-content .section1-text-item {
