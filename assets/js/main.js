@@ -130,24 +130,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const video = section1.querySelector('.js-section1-video');
     const textItems = document.querySelectorAll('.section1-text-item');
     let currentIndex = 0;
-    const maxIndex = textItems.length
+    const maxIndex = textItems.length;
+    const intervalDuration = 7;
     let interval;
 
     function changeActiveItem() {
       textItems.forEach((item, index) => {
-        const descBox = item.querySelector(".section1-text-item-description-box");
+        const descBox = item.querySelector('.section1-text-item-description-box');
 
         if (index === currentIndex) {
-          gsap.to(descBox, { height: "auto", duration: 0.5, ease: "power2.out" });
-          item.classList.add("is--active");
+          gsap.to(descBox, { height: 'auto', duration: 0.5, ease: 'power2.out' });
+          item.classList.add('is--active');
           gsap.fromTo(item,
-            { "--differentiator-progress": "0%" },
-            { "--differentiator-progress": "100%", duration: 12, ease: "linear" }
+            { '--differentiator-progress': '0%' },
+            { '--differentiator-progress': '100%', duration: intervalDuration, ease: 'linear' }
           );
         } else {
-          gsap.to(descBox, { height: 0, duration: 0.5, ease: "power2.out" });
-          item.classList.remove("is--active");
-          gsap.set(item, { "--differentiator-progress": "0%" });
+          gsap.to(descBox, { height: 0, duration: 0.5, ease: 'power2.out' });
+          item.classList.remove('is--active');
+          gsap.set(item, { '--differentiator-progress': '0%' });
         }
       });
     }
@@ -157,11 +158,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
       interval = setInterval(() => {
         currentIndex = (currentIndex + 1) >= maxIndex ? 0 : (currentIndex + 1);
         changeActiveItem();
-      }, 12000);
+      }, 7000);
     }
 
     textItems.forEach((item, index) => {
-      item.addEventListener("click", () => {
+      item.addEventListener('click', () => {
         clearInterval(interval);
 
         textItems.forEach(itm => {
@@ -170,18 +171,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         textItems.forEach((i) => {
           if (i !== item) {
-            i.classList.remove("is--active");
-            gsap.set(i, { "--differentiator-progress": "0%" });
-            gsap.to(i.querySelector(".section1-text-item-description-box"), { height: 0, duration: 0.5, ease: "power2.out" });
+            i.classList.remove('is--active');
+            gsap.set(i, { '--differentiator-progress': '0%' });
+            gsap.to(i.querySelector('.section1-text-item-description-box'), { height: 0, duration: 0.5, ease: 'power2.out' });
           }
         });
 
-        item.classList.add("is--active");
+        item.classList.add('is--active');
         gsap.fromTo(item,
-          { "--differentiator-progress": "0%" },
-          { "--differentiator-progress": "100%", duration: 12, ease: "linear" }
+          { '--differentiator-progress': '0%' },
+          { '--differentiator-progress': '100%', duration: intervalDuration, ease: 'linear' }
         );
-        gsap.to(item.querySelector(".section1-text-item-description-box"), { height: "auto", duration: 0.5, ease: "power2.out" });
+        gsap.to(item.querySelector('.section1-text-item-description-box'), { height: 'auto', duration: 0.5, ease: 'power2.out' });
 
         currentIndex = (currentIndex + 1) >= maxIndex ? 0 : (currentIndex + 1); // 클릭한 요소 이후로 진행
         startInterval(); // 클릭한 애니메이션이 끝난 후부터 다시 시작
@@ -205,29 +206,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
       }
     })
     // 초기 상태 설정
-    // gsap.set(textElements, { opacity: 0, y: -50 });
 
     const playAnimation = () => {
       video.play(); // 비디오 재생
       video.loop = true;
-      // gsap.to(textElements, {
-      //   opacity: 1,
-      //   y: 0,
-      //   stagger: 0.2, // 요소별 애니메이션 딜레이
-      //   duration: 0.8,
-      //   ease: 'power3.out'
-      // });
     }
 
     const stopAnimation = () => {
       video.pause(); // 비디오 정지
-      video.currentTime = 0
-      // gsap.to(textElements, {
-      //   opacity: 0,
-      //   y: -50,
-      //   duration: 0.5,
-      //   ease: 'power3.in'
-      // });
+      video.currentTime = 0;
     }
 
     // 스크롤 트리거 설정
