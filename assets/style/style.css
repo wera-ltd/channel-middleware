@@ -1926,6 +1926,9 @@ body.is--overflow-hidden {
   width: 100%;
   bottom: 1vw;
 }
+.section0-content .section0-text0 .main-common__description {
+  margin-bottom: 0;
+}
 @media screen and (min-width: 780px) {
   .section0-content .section0-text0 {
     display: flex;
