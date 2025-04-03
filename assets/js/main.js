@@ -25,8 +25,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const video = document.querySelector('.js-section0-video');
     const text0 = document.querySelector('.js-section0-text0');
     const text1 = document.querySelector('.js-section0-text1');
-    const stopContent = document.querySelector('.js-section0-stop-content');
-    const section0 = document.querySelector('.section0');
+    const section0 = document.querySelector('.js-section0');
 
     const fadeDown = (parent, target) => {
       parent.querySelector(target).style.opacity = '1'
@@ -89,35 +88,37 @@ document.addEventListener('DOMContentLoaded', (event) => {
       }
     })
 
+    video.play();
+
     // GSAP ScrollTrigger 설정
-    gsap.registerPlugin(ScrollTrigger);
+    // gsap.registerPlugin(ScrollTrigger);
 
     // ScrollTrigger로 스크롤 위치 체크하여 비디오 제어
-    const videoTrigger = ScrollTrigger.create({
-      trigger: section0,
-      start: 'top 50%', // 섹션의 상단이 화면의 50% 지점에 도달했을 때
-      end: 'bottom top', // 섹션의 하단이 화면의 상단을 통과했을 때
-      onEnter: () => {
-        // 섹션이 뷰포트에 들어왔고 비디오가 아직 시작되지 않았을 때
-        video.play();
-      },
-      onEnterBack: () => {
-        // 스크롤을 올려서 다시 섹션으로 돌아왔을 때
-        video.play();
-      },
-      onLeave: () => {
-        // 섹션이 뷰포트를 완전히 벗어났을 때
-        video.pause();
-        video.currentTime = 0
-      }
-    });
+    // const videoTrigger = ScrollTrigger.create({
+    //   trigger: section0,
+    //   start: 'top 50%', // 섹션의 상단이 화면의 50% 지점에 도달했을 때
+    //   end: 'bottom top', // 섹션의 하단이 화면의 상단을 통과했을 때
+    //   onEnter: () => {
+    //     // 섹션이 뷰포트에 들어왔고 비디오가 아직 시작되지 않았을 때
+    //     video.play();
+    //   },
+    //   onEnterBack: () => {
+    //     // 스크롤을 올려서 다시 섹션으로 돌아왔을 때
+    //     video.play();
+    //   },
+    //   onLeave: () => {
+    //     // 섹션이 뷰포트를 완전히 벗어났을 때
+    //     video.pause();
+    //     video.currentTime = 0
+    //   }
+    // });
 
     // 비디오 종료 시 이벤트
     video.addEventListener('ended', function () {
-      // js-section0-stop-content의 자식 요소 나타남
-      setTimeout(() => {
-        stopContent.style.opacity = '1';
-      }, 1000);
+      //3초 뒤 재생
+      setTimeout(function(){
+        video.play();
+      }, 2000);
     });
   }
 
@@ -208,6 +209,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     const playAnimation = () => {
       video.play(); // 비디오 재생
+      video.loop = true;
       // gsap.to(textElements, {
       //   opacity: 1,
       //   y: 0,
@@ -688,9 +690,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // 기본 모션
         ScrollTrigger.create({
           trigger: section,
-          start: '40% bottom',
+          start: 'top 60%',
           end: '100% bottom',
-
           onEnter: (self) => {
             gsap.to(header, {
               opacity: 1,
@@ -913,9 +914,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
           // 실행 후 위로 올라가는 모션
           ScrollTrigger.create({
             trigger: section,
-            start: 'top 50%',
-            end: 'bottom 20%',
-            onEnterBack: () => {
+            start: 'top -10%',
+            end: 'bottom 0%',
+            onLeaveBack: () => {
               gsap.to(header, {
                 opacity: 1,
                 y: 0,
