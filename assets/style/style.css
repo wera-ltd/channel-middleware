@@ -1903,7 +1903,7 @@ body.is--overflow-hidden {
 }
 @media screen and (max-width: 479px) {
   .section0 {
-    min-height: 530px;
+    min-height: calc(100vh - 5.7rem);
   }
 }
 @media screen and (max-width: 640px) {
@@ -1957,7 +1957,7 @@ body.is--overflow-hidden {
 }
 @media screen and (max-width: 779px) {
   .section0-content .section0-text1 {
-    top: 12rem;
+    top: 14rem;
   }
 }
 .section0-content .section0-text1 .section0-video__title,
@@ -2026,6 +2026,7 @@ body.is--overflow-hidden {
   .section0-video {
     width: 800px;
     height: 500px;
+    bottom: 14vh;
   }
 }
 .section0-video-area {
@@ -6496,7 +6497,7 @@ body.hidden .terms-layer-bg {
   }
 }
 .section2 .section2-video-content__title {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #000;
   line-height: 1.3;
