@@ -2259,17 +2259,6 @@ body.is--overflow-hidden {
   position: relative;
   z-index: 2;
   align-self: start;
-  min-height: 273px;
-}
-@media screen and (max-width: 1339px) {
-  .section1 .section1-text .section1-text-content {
-    min-height: 297px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .section1 .section1-text .section1-text-content {
-    min-height: auto;
-  }
 }
 @media screen and (min-width: 1281px) {
   .section1 .section1-text .section1-text-content {
