@@ -101,6 +101,7 @@ table {
 
 html {
   -webkit-font-smoothing: antialiased;
+  line-height: inherit;
 }
 
 .layout {
