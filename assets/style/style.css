@@ -5794,7 +5794,6 @@ body.hidden .terms-layer-bg {
   .pricing-content .price-calculate-container .price-calculate-content {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
   }
 }
 .pricing-content .price-calculate-container .price-calculate-content-content {
