@@ -1,3 +1,9 @@
-<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M8.75 0C4.35 0 0.75 3.6 0.75 8C0.75 12.4 4.35 16 8.75 16C13.15 16 16.75 12.4 16.75 8C16.75 3.6 13.15 0 8.75 0ZM8.75 14.4C5.222 14.4 2.35 11.528 2.35 8C2.35 4.472 5.222 1.6 8.75 1.6C12.278 1.6 15.15 4.472 15.15 8C15.15 11.528 12.278 14.4 8.75 14.4ZM12.422 4.464L7.15 9.736L5.078 7.672L3.95 8.8L7.15 12L13.55 5.6L12.422 4.464Z" fill="#0568FD"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.565 -0.565 18 18" fill="none" stroke="#47B673"
+     stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"
+     id="Check-Circle--Streamline-Feather" height="18" width="18">
+    <desc>Check Circle Streamline Icon: https://streamlinehq.com</desc>
+    <path d="M15.464166666666666 7.788316666666667V8.434999999999999a7.029166666666667 7.029166666666667 0 1 1 -4.168295833333333 -6.424658333333333"
+          stroke-width="1.13"></path>
+    <path d="M15.464166666666666 2.8116666666666665 8.434999999999999 9.8478625l-2.1087499999999997 -2.1087499999999997"
+          stroke-width="1.13"></path>
 </svg>
