@@ -6246,6 +6246,7 @@ body.hidden .terms-layer-bg {
 .feature-section .feature-content .feature-content-item {
   text-align: center;
   border-bottom: 1px solid #e7e7e7;
+  font-size: 17px;
 }
 .feature-section .feature-content .feature-content-item:nth-child(6n+1) {
   text-align: left;
